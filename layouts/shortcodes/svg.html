@@ -1,0 +1,8 @@
+{{ $name := .Get "name"}}
+{{ $class := .Get "style"}}
+{{ $path := printf (print "img/" $name ".svg")  }}
+{{ $svg :=  resources.Get $path }}
+<div class="{{ $class }}">
+    {{ $svg.Content | safeHTML }}
+    <div style="opacity: 0.001; font-size: 1px; line-height: 0;">-</div>
+</div>

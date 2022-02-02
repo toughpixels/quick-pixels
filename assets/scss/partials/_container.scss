@@ -1,0 +1,18 @@
+.container {
+    width: var(--container-width);
+    max-width: 100%;
+    margin: 0 auto;
+    @include px(var(--container-edge-gap));
+}
+body {
+    overflow-x: hidden;
+}
+.containerOverride {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    // this is going to cause problems if you want a full-width bg color (slivers of non-color on x edges)
+    @media (pointer: fine) {
+        width: calc(100vw - 12px);
+    }
+}

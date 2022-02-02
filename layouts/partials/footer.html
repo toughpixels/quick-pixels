@@ -1,0 +1,9 @@
+<footer class="bg-dark">
+    <div class="py-section">
+        <div class="container prose">
+            {{ $name := "replacements/footer"}}
+            {{ $page := $.Site.GetPage $name }}
+            {{ $page.Content }}
+        </div>
+    </div>
+</footer>

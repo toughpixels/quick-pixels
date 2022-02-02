@@ -1,0 +1,20 @@
+
+.openable {
+    display: none;
+    &.is-open {
+        display: block;
+    }
+}
+
+.toggleRotate {
+    display: inline-block;
+    .is-open & {
+        transform: rotate(90deg);
+    }
+}
+
+body.is-active {
+    main, footer {
+        display: none;
+    }
+}

@@ -1,0 +1,6 @@
+{{ $maxSize := "1fr"}}
+{{ with .Get "max-size" }}
+{{ $maxSize = . }}
+{{ end }}
+<div style="grid-template-columns: repeat(auto-fill, minmax(calc(320px - var(--container-edge-gap)), {{$maxSize}}))" class="grid align-center justify-center grid-cols-flex grid-gap-{{ .Get "gap"}}">{{ .Inner | markdownify }}</div>
+

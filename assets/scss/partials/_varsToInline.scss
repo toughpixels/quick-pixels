@@ -1,0 +1,18 @@
+@mixin varsToInline($prefix, $property, $nameValuesMap) {
+    // check out an example of this in _size.scss
+    /* vars! 1. put these vars in the front-matter */
+    :root {
+        @each $name, $value in $nameValuesMap {
+            --#{$prefix}-#{$name}: #{$value};
+        }
+    }
+    /* vars! 2. put this in your scss/css */
+    @each $name, $value in $nameValuesMap {
+        .#{$prefix} {
+            &-#{$name} {
+                #{$property}: var(--#{$prefix}-#{$name});
+            }
+        }
+    }
+    /* vars! 3. DON'T FORGET TO COMMENT OUT "@include varsToInline()" WHEN YOU'RE DONE! */
+}

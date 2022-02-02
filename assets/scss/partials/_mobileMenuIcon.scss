@@ -1,0 +1,46 @@
+.mobileMenuIcon {
+    position: relative;
+    display: block;
+    $size: 1em;
+    $barWidth: 0.12em;
+    $topBottomGap: 0.08em;
+    $barDistance: ($size - $barWidth*3 - $topBottomGap*2)/2;
+    height: $size;
+    width: $size * 1.2;
+    span {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: $barWidth;
+        background-color: currentColor;
+        
+    }
+    span {
+        &:first-child {
+            top: $topBottomGap;
+        }
+        &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:last-child {
+            bottom: $topBottomGap;
+        }
+    }
+    
+    
+    body.is-active & span {
+        &:first-child {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &:nth-child(2) {
+            background-color: transparent;
+        }
+        &:last-child {
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}

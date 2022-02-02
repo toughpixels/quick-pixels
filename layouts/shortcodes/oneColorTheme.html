@@ -1,0 +1,174 @@
+<div class="mt-md"></div>
+<script>
+
+function shadeHexColor(color, percent) {
+    var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+    return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+}
+// https://github.com/PimpTrizkit/PJs/wiki/12.-Shade,-Blend-and-Convert-a-Web-Color-(pSBC.js)#stackoverflow-archive-begin
+    // lighten = 0 => 1
+    // darken = 0 => -1
+  const updateColors = function(hex) {
+    const head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+    head.appendChild(style);
+    style.type = 'text/css';
+    const lightBgOff = shadeHexColor(hex, 0.85);
+    const lightBgPrimary = hex;
+    const lightBgPrimaryBlend = shadeHexColor(hex, 0.7);
+    const lightBgPrimaryContrast = shadeHexColor(hex, -0.35);
+    const darkBg = shadeHexColor(hex, -0.85);
+    const darkBgOff = shadeHexColor(hex, -0.75);
+    const darkBgPrimary = shadeHexColor(hex, 0.40);
+    const darkBgPrimaryBlend = shadeHexColor(hex, -0.60);
+    const darkBgPrimaryContrast = shadeHexColor(hex, 0.65);
+    const hexNoHash = hex.replace('#', '');
+
+    var styles = `:root {
+    --lightBgOff: ${lightBgOff};
+    --lightBgPrimary: ${lightBgPrimary};
+    --lightBgPrimaryBlend: ${lightBgPrimaryBlend};
+    --lightBgPrimaryContrast: ${lightBgPrimaryContrast};
+
+    --darkBg: ${darkBg};
+    --darkBgOff: ${darkBgOff};
+    --darkBgPrimary: ${darkBgPrimary};
+    --darkBgPrimaryBlend: ${darkBgPrimaryBlend};
+    --darkBgPrimaryContrast: ${darkBgPrimaryContrast};
+  }
+  select:focus {
+    
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 28 28' fill='%23${hexNoHash}' %3E%3Cpath d='M26.297 12.625l-11.594 11.578c-0.391 0.391-1.016 0.391-1.406 0l-11.594-11.578c-0.391-0.391-0.391-1.031 0-1.422l2.594-2.578c0.391-0.391 1.016-0.391 1.406 0l8.297 8.297 8.297-8.297c0.391-0.391 1.016-0.391 1.406 0l2.594 2.578c0.391 0.391 0.391 1.031 0 1.422z'%3E%3C/path%3E%3C/svg%3E");
+  }`;
+    
+        style.appendChild(document.createTextNode(styles));
+    
+  }
+</script>
+
+<div class="container bg-light">
+  <label>
+    <span class="label">Pick a color that makes <a href="">this readable</a></span>
+    <input class="textInput" id="colorPicker" name="color" data-jscolor="" />
+  </label>
+</div>
+{{ $sections := slice "light" "dark"}} {{ range $sections }}
+<section class="bg-{{ . }}">
+  <div class="container py-section prose">
+    <div class="mw-prose prose">
+      {{ if eq . "light"}}
+      <h2>Section Header</h2>
+      <p class="text-lead">
+        This has a simple white background and usually fits with the main content of the page.  Maybe you want an <a href="#">inline link</a>.
+      </p>
+      {{ else }}
+        <h2>Dark Background Section</h2>
+        <p class="text-lead">
+          Often a dark section like this is used in the header and footer parts of a site since they stand out.  Oh, and here's an <a href="#">inline link</a>.
+        </p>
+      {{ end }}
+    </div>
+
+    <div class="grid grid-gap-md grid-cols-2 size-h3">
+      <div class="space-y-md">
+        <div>
+          <label>
+            <span class="label">Label</span>
+            <input type="text" class="textInput" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <span class="label">Label</span>
+            <select>
+              <option value="">Option 1</option>
+              <option value="">Option 2</option>
+              <option value="">Option 3</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid grid-gap-sm grid-cols-2">
+          <div>
+            <a href="" class="btn btn-secondary">Secondary Button</a>
+          </div>
+          <div>
+            <a href="" class="btn btn-primary">Primary Button</a>
+          </div>
+        </div>
+      </div>
+      <aside class="bg-highlight prose p-sm mw-prose">
+        {{ if eq . "light"}}
+        <h3>An Aside</h3>
+        <p>
+          An "aside" is a type of HTML element that tells users using screen readers that its content is not a part of the main content. Let's make it stand out visually, too.
+        </p>
+        {{ else }}
+        <h3>Tabs!</h3>
+        <p>Have you only been hovering over clickable things with your mouse?  If so, try clicking the "tab" button and notice how clear it is when an interactive element is selected.</p>
+        {{ end }}
+      </aside>
+    </div>
+  </div>
+  <div class="bg-off py-section">
+    <div class="container">
+      <div class="prose mw-prose">
+        {{ if eq . "light"}}
+        <h2>Off-bg Section</h2>
+        <p class="text-lead">
+          Sometimes a page will have lots of sections.  One way to visually keep these sections distinct from each other is to alternate off-bg sections and default-bg sections.
+        </p>
+        {{ else }}
+        <h2>Off-bg Dark Section</h2>
+        <p class="text-lead">
+           This could be used as a pre-footer section.  For example, a prompt asking the user to sign up for a newsletter.
+        </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+<script>
+  function findGetParameter(parameterName) {
+    var result = null,
+      tmp = [];
+    location.search
+      .substr(1)
+      .split("&")
+      .forEach(function (item) {
+        tmp = item.split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+      });
+    return result;
+  }
+  var color = '#'+findGetParameter("color");
+  console.log('test');
+  console.log(color);
+  if (!color) {
+    color = localStorage.getItem("color");
+    console.log('hey');
+  }
+  if (!color) {
+    color = "#253bb4";
+  }
+
+  function updateColorParam(hex) {
+			if (history.pushState) {
+				var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?color='+hex.replace('#', '');
+
+				window.history.pushState({path:newurl},'',newurl);
+			}
+		}
+
+  const colorPicker = document.getElementById("colorPicker");
+  colorPicker.value = color;
+  let colorChange = new Event('change');
+  colorPicker.addEventListener("change", function () {
+    color = colorPicker.value;
+    localStorage.setItem("color", color);
+    updateColors(color);
+    updateColorParam(color);
+  });
+  colorPicker.dispatchEvent(colorChange);
+</script>

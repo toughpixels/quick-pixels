@@ -1,0 +1,22 @@
+<header>
+<div class="flex justify-between bg-light b-bottom-header">
+    {{ $tag := "span" }}
+    {{ if .IsHome }}
+    {{ $tag = "h1" }}
+    {{ end }}
+    <a href="{{ .Site.BaseURL }}" class="p-sm size-headerLink">
+    
+        {{print "<" | safeHTML }}{{ $tag }} class="sr-only">{{ .Site.Title }}{{print "<" | safeHTML }}/{{ $tag }}>
+        {{- partial "logo.html" . -}}
+    
+    </a>
+    
+    
+    <button aria-label="Open site navigation" type="button" class="p-sm size-headerLink" data-toggle-class data-toggle-class-on-target data-toggle-escape data-toggle-modal data-toggle-target="#siteNavLightbox, body">
+        <span class="mobileMenuIcon is-bars"><span></span><span></span><span></span></span>
+    </button>
+
+</div>
+{{- partial "siteNav.html" . -}}
+</header>
+{{/* partial "breadcrumbs.html" . */}}

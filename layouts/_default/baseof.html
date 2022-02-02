@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body id="top" class="{{ .Kind }} {{ .Layout }} bg-light flex direction-column mh-100vh">
+        {{- partial "header.html" . -}}
+        <main class="py-section flex-1 prose">
+            <div class="container">
+        {{- block "main" . }}{{- end }}
+             </div>
+             {{ if gt .WordCount 100 }}
+        <div class="mt-lg mb-sm">
+            <div class="container text-right">
+                <a href="#top">Scroll to top</a>
+            </div>
+        </div>
+        {{ end }}
+        </main>
+        
+        {{ if ne (.Param "hide_footer") true }}
+        {{- partial "footer.html" . -}}
+        {{ end }}
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

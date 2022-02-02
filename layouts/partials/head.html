@@ -1,0 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {{ if eq (.Param "hidden") true }}
+    <meta name="robots" content="noindex">
+    {{ end }}
+    <title>{{ .Param "title" }}</title>
+    <meta name="description" content="{{ .Param "description" }}">
+    {{ template "_internal/opengraph.html" . }}
+    {{- partial "rss.html" . -}}
+    
+    
+    {{- partial "vitalcss.html" . -}}
+    {{- partial "favicons.html" . -}}
+    {{- partial "siteVars.html" . -}}
+    
+    
+</head>

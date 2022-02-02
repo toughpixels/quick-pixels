@@ -1,0 +1,7 @@
+<audio controls preload="auto">
+	{{ if .Get "url" }}
+	<source {{ with .Get "url" }}src="{{ . }}"{{ end }}
+		type="audio/{{ with .Get "type" }}{{ . }}{{ else }}mp4{{ end }}">
+	{{ end }}
+	Your browser does not support the audio element
+</audio>

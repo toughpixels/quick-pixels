@@ -1,0 +1,20 @@
+<hr class="mt-lg mb-sm" />
+<nav class="flex">
+  {{ $pages := $.Page.Parent.Pages }}
+  <div class="flex-1">
+    {{ with $pages.Next $.Page }}
+
+    <div>Previous Item</div>
+    <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
+
+    {{ end }}
+  </div>
+  <div class="flex-1 text-right">
+    {{ with $pages.Prev $.Page }}
+
+    <div>Next Item</div>
+    <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
+
+    {{ end }}
+  </div>
+</nav>

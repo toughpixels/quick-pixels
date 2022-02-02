@@ -1,0 +1,3 @@
+{{ $name := .Get "name"}}
+{{ $page := $.Site.GetPage $name }}
+{{ $page.Content }}

@@ -1,0 +1,13 @@
+<h2>Filter:</h2>
+<ul>
+    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      <li><a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
+        <ul>
+          {{ range $value := $taxonomy }}
+          <li> {{ $value }} </li>
+                
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
