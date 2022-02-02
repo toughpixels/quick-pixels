@@ -1,0 +1,16 @@
+[build]
+  command = "hugo --gc --minify"
+  context = "production"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.83.1"
+
+[context.production.environment]
+  HUGO_VERSION = "0.83.1"
+  HUGO_ENV = "production"
+
+[[redirects]]
+  from = "/encouragement-groups"
+  to = "/groups"
+  status = 301
