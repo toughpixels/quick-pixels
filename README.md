@@ -8,16 +8,16 @@ Make a GitHub repo with the name of the client's site, we're using the example `
 - `hugo new site website`  
 - `cd website`
 - `git init`
-If you have access and want to edit base as you devlop, try this
+If you have access and want to edit quick pixels as you devlop, try this
 - `git submodule add git@github.com:toughpixels/quick-pixels.git themes/quick-pixels`
-If you're using public access to base, use this
+If you're using public access to quick pixels, use this
 - `git submodule add https://github.com:toughpixels/quick-pixels.git themes/quick-pixels`
-- Copy the example site to your project directory: `cp -r themes/base/exampleSite/* .`
+- Copy the example site to your project directory: `cp -r themes/quick-pixels/exampleSite/* .`
 
-## Editing Base
+## Editing Quick Pixels
 
 To run a preview site for the theme, run
-* `cd website/`
+* `cd exampleSite/`
 * `hugo serve --themesDir ../..`
 
 ## Cloning an Existing Project
