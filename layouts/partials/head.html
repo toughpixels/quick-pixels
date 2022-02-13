@@ -1,7 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {{ if eq (.Param "hidden") true }}
+    {{ $hiddenPage := $.Site.GetPage "/hidden"}}
+    {{ if .IsDescendant $hiddenPage }}
     <meta name="robots" content="noindex">
     {{ end }}
     <title>{{ .Param "title" }}</title>

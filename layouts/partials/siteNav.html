@@ -6,10 +6,11 @@
     <nav class="">
         <ul class="mt-0 list-reset">
             {{ $currentPage := . }}
+            {{ $hiddenPage := $.Site.GetPage "/hidden"}}
             {{ range .Site.Menus.main }}
             {{ $page := $.Site.GetPage .URL }}
             {{ if $page.Parent.IsHome }}
-            {{ if ne ($page.Param "hidden") true }}
+            {{ if not ($page.IsDescendant $hiddenPage) }}
                     <li class="mt-0">
                         
                         <div class="flex">
@@ -38,9 +39,9 @@
             
                         <ul class="openable bg-off mt-0 list-reset" role="region" aria-labelledby="nav-{{ .Name | urlize }}-items-trigger" aria-hidden="true" id="nav-{{ .Name | urlize }}-items">
                         {{ range $page.Sections }}
-                        {{ if ne (.Param "hidden") true }}
+                        
     <li class="mt-0"><a href="{{ .Permalink }}" class="block p-sm pl-md size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active{{ end }}">{{ .Title }}</a></li>
-    {{ end }}
+
     {{ end }}
     </ul>
     {{ end }}
