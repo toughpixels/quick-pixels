@@ -4,22 +4,18 @@
   {{ $pages := $.Page.Parent.Pages }}
 
     {{ with $pages.Next $.Page }}
-    {{ if ne (.Param "hidden") true }}
     <div>
     <h6 class="inline pr-sm">Previous Page:</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
   </div>
     {{ end }}
-    {{ end }}
 
   
     {{ with $pages.Prev $.Page }}
 
-    {{ if ne (.Param "hidden") true }}
       <h6 class="inline pr-sm">Next Page:</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
 
-    {{ end }}
     {{ end }}
 
 {{ if ne (len $pages) 1 }}
