@@ -15,16 +15,6 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - {label: "Hidden", name: "hidden", widget: "boolean", default: false, required: false}
-      - {label: "Redirect here from...", name: "aliases", widget: "list", default: false, required: false, hint: "add URLs starting with a '\\' that you want to redirect to this page" }
-      - {label: "Translation Key", name: "translationKey", widget: "string", hint: "Two pages with the same translation key will be considered different translations of the same content", required: false}
-      
-      - {label: "Categories", name: "categories", widget: "select", options: ['Thoughts', 'Behaviors'], multiple: true, required: false}
-      - {label: "Tags", name: "tags", widget: "select", options: ['Kindness to Myself', 'Kindness to Others', 'Kindness to the Environment', 'Chicago'], multiple: true, required: false}
-      - {label: "Hide Footer", name: "hide_footer", widget: "boolean", default: false, required: false}
-      - {label: "Hide Bottom Nav (depreciated)", name: "hide_bottom_nav", widget: "boolean", default: false, required: false}
-      - {label: "Menu", name: "menu", widget: "select", options: [ { label: "Main", value: "main" }, { label: "None", value: "none" } ], default: "main"
-      }
       - {label: "Menu Weight", name: "weight", widget: "number", step: 1, default: 0}
       - {
               label: 'Description',
@@ -32,26 +22,24 @@ collections:
               widget: 'string',
               hint: 'A short description of what the page is about.  This will only display in search results or in previews of the link to this page.', required: false
             }
+      
+      - {label: "Body", name: "body", widget: "markdown", modes: ['raw'], hint: 'For an aside, copy/paste this: {{< aside >}}✨{{< /aside >}} and replace the stars with text'}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Preview Image", name: image, widget: "image", hint: 'This will display in previews of the link to this page.', required: false}
-      - {label: "Body", name: "body", widget: "markdown", modes: ['raw'], hint: 'For an aside, copy/paste this: {{< aside >}}✨{{< /aside >}} and replace the stars with text'}
+      
+      - {label: "Child-links order", name: "child_links_order", widget: "select", options: [{ label: "Chicago", value: "ORD" },{ label: "Paris", value: "CDG" }, { label: "Tokyo", value: "HND" }], multiple: false, required: false}
+      - {label: "Redirects", name: "aliases", widget: "list", required: false, hint: "add URLs starting with a '\\' that you want to redirect to this page" }
+      - {label: "Translation Key", name: "translationKey", widget: "string", hint: "Two pages with the same translation key will be considered different translations of the same content", required: false}
+      
+      - {label: "Categories", name: "categories", widget: "select", options: ['Thoughts', 'Behaviors'], multiple: true, required: false}
+      - {label: "Tags", name: "tags", widget: "select", options: ['Kindness to Myself', 'Kindness to Others', 'Kindness to the Environment', 'Chicago'], multiple: true, required: false}
+      - {label: "Hide Footer", name: "hide_footer", widget: "boolean", default: false, required: false}
+      - {label: "Menu", name: "menu", widget: "select", options: [ { label: "Main", value: "main" }, { label: "None", value: "none" } ], default: "main"
+      }
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
   - name: 'settings'
     label: 'Settings'
     files:
-      - file: 'content/_index.md'
-        label: 'Home'
-        name: 'home'
-        fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {
-              label: 'Description',
-              name: 'description',
-              widget: 'string',
-              hint: 'A short description of what the page is about.  This will only display in search results or in previews of the link to this page.'
-            }
-            - {label: "Preview Image", name: image, widget: "image", hint: 'This will display in previews of the link to this page.', required: false}
-            - {label: "Body", name: "body", widget: "markdown", hint: 'For an aside, copy/paste this: {{< aside >}}✨{{< /aside >}} and replace the stars with text'}
       - file: 'config.toml'
         label: 'Settings'
         name: 'settings'
