@@ -3,7 +3,10 @@ body {
     line-height: 1.6667;
     font-family: var(--default-font);
 }
-.block, div, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, section, audio {
+picture {
+    display: block;
+}
+.block, div, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, section, audio, picture, figure {
     margin-top: 1.5em;
 }
 h3 + * {
