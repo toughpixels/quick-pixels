@@ -1,6 +1,14 @@
-<ul class="{{ .Get "class"}}">
-    {{ $order := $.Page.Params.child_links_order }}
-    {{ range $.Page.Sections }}
+{{ $context := false }}
+{{ $parentUrl := .Get "parent_url" }}
+
+{{ if $parentUrl }}
+{{ $context = $.Site.GetPage $parentUrl }}
+{{ else }}
+{{ $context = $.Page }}
+{{ end }}
+<ul>
+    {{ range $context.Sections }}
         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
     {{ end }}
 </ul>
+
