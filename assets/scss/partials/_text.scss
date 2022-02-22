@@ -9,6 +9,12 @@ picture {
 .block, div, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, section, audio, picture, figure {
     margin-top: 1.5em;
 }
+img {
+    margin: 0 auto;
+}
+figure {
+    text-align: center;
+}
 h3 + * {
     margin-top: 1em;
 }

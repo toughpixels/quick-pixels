@@ -1,0 +1,4 @@
+{{ $data := (dict "src" ($.Page.Params.preview_image.image)) }}
+{{ $data = merge $data (dict "alt" $.Page.Params.preview_image.alt) }}
+{{ $data = merge $data (dict "caption" $.Page.Params.preview_image.caption) }}
+{{ partial "image.html" $data }}

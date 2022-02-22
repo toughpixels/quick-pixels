@@ -1,0 +1,23 @@
+{{/* reference: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/opengraph.html
+
+image should be: 1200px by 630px tall or similar aspect ratio
+    */}}
+
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsSection }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{ with .Params.preview_image.image }}
+{{ $ogImage := resources.Get . }}
+{{ if gt $ogImage.Width 1200 }}
+    {{ $ogImage = $ogImage.Fill "1200x630 jpg"  }}
+{{ else }}
+    {{ $ogImage = $ogImage.Fill (print $ogImage.Width "x" $ogImage.Width " jpg")  }}
+{{ end }}
+<meta property="og:image" content="{{ $ogImage.Permalink }}" />
+{{ end }}
+
+{{- with .Params.audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
+{{- with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}

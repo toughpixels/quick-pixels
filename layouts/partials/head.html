@@ -7,7 +7,7 @@
     {{ end }}
     <title>{{ .Param "title" }}</title>
     <meta name="description" content="{{ .Param "description" }}">
-    {{ template "_internal/opengraph.html" . }}
+    {{- partial "simple-opengraph.html" . -}}
     {{- partial "rss.html" . -}}
     
     

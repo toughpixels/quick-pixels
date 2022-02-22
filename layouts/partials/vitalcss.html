@@ -6,10 +6,5 @@
 {{ end }}
 {{- $loadfirst := $main.Content | safeCSS }}
 {{ $settingsPage := $.Site.GetPage "/"}}
-<style type="text/css">
-    .container {
-        width: {{ $settingsPage.Params.containerWidth }};
-    }
-    
-{{- $loadfirst -}}</style>
+<style type="text/css">{{- $loadfirst -}}</style>
 {{- partial "vars.html" . -}}
