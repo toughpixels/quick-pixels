@@ -51,4 +51,5 @@ collections:
           label: "Params"
           widget: "object"
           fields:
-            - {label: "Site Vars", name: "siteVars", widget: "text", required: true}  
+            - {label: "Site Vars", name: "siteVars", widget: "text", required: true} 
+            - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  

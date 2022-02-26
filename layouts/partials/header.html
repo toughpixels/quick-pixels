@@ -1,14 +1,8 @@
 <header>
 <div class="flex justify-between bg-light b-bottom-header">
-    {{ $tag := "span" }}
-    {{ if .IsHome }}
-    {{ $tag = "h1" }}
-    {{ end }}
     <a href="{{ .Site.BaseURL }}" class="p-sm size-headerLink">
-    
-        {{print "<" | safeHTML }}{{ $tag }} class="sr-only">{{ .Site.Title }}{{print "<" | safeHTML }}/{{ $tag }}>
+        <span class="sr-only">{{ .Site.Title }}</span>
         {{- partial "logo.html" . -}}
-    
     </a>
     
     
