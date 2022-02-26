@@ -1,9 +1,3 @@
-<footer class="bg-dark">
-    <div class="py-section">
-        <div class="container prose">
-            {{ $name := "/hidden/replacements/footer"}}
-            {{ $page := $.Site.GetPage $name }}
-            {{ $page.Content }}
-        </div>
-    </div>
-</footer>
+{{ $name := "/hidden/replacements/footer"}}
+{{ $page := $.Site.GetPage $name }}
+{{ $page.Content }}
