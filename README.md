@@ -11,7 +11,7 @@ Make a GitHub repo with the name of the client's site, we're using the example `
 If you have access and want to edit quick pixels as you devlop, try this
 - `git submodule add git@github.com:toughpixels/quick-pixels.git themes/quick-pixels`
 If you're using public access to quick pixels, use this
-- `git submodule add https://github.com:toughpixels/quick-pixels.git themes/quick-pixels`
+- `git submodule add https://github.com/toughpixels/quick-pixels.git themes/quick-pixels`
 - Copy the example site to your project directory: `cp -r themes/quick-pixels/exampleSite/* .`
 
 ## Editing Quick Pixels
