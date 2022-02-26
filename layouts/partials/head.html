@@ -1,19 +1,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    {{ $hiddenPage := $.Site.GetPage "/hidden"}}
-    {{ if .IsDescendant $hiddenPage }}
-    <meta name="robots" content="noindex">
-    {{ end }}
     <title>{{ .Param "title" }}</title>
     <meta name="description" content="{{ .Param "description" }}">
+    {{- partial "hiddenPagesMeta.html" . -}}
     {{- partial "simple-opengraph.html" . -}}
     {{- partial "rss.html" . -}}
-    
-    
     {{- partial "vitalcss.html" . -}}
-    {{- partial "favicons.html" . -}}
     {{- partial "siteVars.html" . -}}
-    
-    
 </head>

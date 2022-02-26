@@ -1,0 +1,4 @@
+{{ $hiddenPage := $.Site.GetPage "/hidden"}}
+{{ if .IsDescendant $hiddenPage }}
+<meta name="robots" content="noindex">
+{{ end }}
