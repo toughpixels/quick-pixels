@@ -1,0 +1,11 @@
+{{ $tag := "section" }}
+{{ with .Get "type"}}
+    {{ $tag = . }}
+{{ end }}
+{{ print "<" | safeHTML }}{{$tag}} class="row {{ .Get "class"}}">
+    <div class="py-section">
+        <div class="container prose">
+            {{ .Inner | markdownify }}
+</div>
+</div>
+{{print "<" | safeHTML }}/{{ $tag }}>
