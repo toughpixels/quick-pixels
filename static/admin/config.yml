@@ -52,4 +52,5 @@ collections:
           widget: "object"
           fields:
             - {label: "Site Vars", name: "siteVars", widget: "text", required: true} 
+            - {label: "Hide Header", name: "hideHeader", widget: "boolean", default: false, required: false}
             - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  

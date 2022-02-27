@@ -1,3 +1,4 @@
+{{ if ne $.Site.Params.hideHeader true }}
 <header>
 <div class="flex justify-between bg-light b-bottom-header">
     <a href="{{ .Site.BaseURL }}" class="p-sm size-headerLink">
@@ -14,3 +15,4 @@
 {{- partial "siteNav.html" . -}}
 </header>
 {{/* partial "breadcrumbs.html" . */}}
+{{ end }}
