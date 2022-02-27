@@ -19,6 +19,7 @@
         {{ if ne (.Param "hide_footer") true }}
         {{- partial "footer.html" . -}}
         {{ end }}
+        {{- partial "footer-bonus.html" . -}}
         {{- partial "scripts.html" . -}}
     </body>
 </html>
