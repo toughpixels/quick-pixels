@@ -118,3 +118,8 @@ code {
 .hideIfFirst:first-child {
     display: none;
 }
+
+.active {
+    text-decoration: none;
+    pointer-events: none;
+}
