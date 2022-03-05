@@ -1,2 +1,2 @@
-<span class='{{ with .Get "class"}}{{.}}{{ end }}'>{{ .Inner | markdownify }}</span>
+<span {{ with .Get "style"}}style="{{ . | safeCSS }}"{{ end }} {{ with .Get "class"}}class="{{.}}"{{ end }}>{{ .Inner | markdownify }}</span>
 
