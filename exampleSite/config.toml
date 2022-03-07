@@ -12,7 +12,7 @@ baseURL = "https://example.com"
   description = "Your_site_description"
   imageSizes = "703 290"
   imageFormats = "webp jpg"
-  themeVars = "--lightBg: #fff;\n--lightBg-off: #e0e7da;\n--lightBg-text: #020202;\n--lightBg-headers: #006704;\n--lightBg-link: #1b6ea5;\n--lightBg-aside: #692838;\n--lightBg-link-active: #860059;\n--lightBg-logo-lines: #ff0000;\n--lightBg-logo-fill: #fac1cb;\n--darkBg: #102736;\n--darkBg-text: #fff;\n--darkBg-headers: #d6c0e9;\n--darkBg-link: #93c0df;\n--site-header-border: #6e0269;\n--site-header-bg: #f1edf0;\n--site-header-bg: #fbf8f2;\n--aside-leftMargin:4rem;\n--aside-labelDisplay:block;\n--aside-topPadding: 5rem;"
+  themeVars = "--lightBg: #fff;\n--lightBg-off: #ecf6fc;\n--lightBg-text: #020202;\n--lightBg-headers: #421968;\n--lightBg-link: #1b6ea5;\n--lightBg-aside: #692838;\n--lightBg-link-active: #860059;\n--lightBg-logo-lines: #ff0000;\n--lightBg-logo-fill: #fac1cb;\n--darkBg: #102736;\n--darkBg-text: #fff;\n--darkBg-headers: #d6c0e9;\n--darkBg-link: #93c0df;\n--site-header-border: #6e0269;\n--site-header-bg: #f1edf0;\n--site-header-bg: #fbf8f2;\n--aside-leftMargin:4rem;\n--aside-labelDisplay:block;\n--aside-topPadding: 5rem;"
 
 
 [markup]
