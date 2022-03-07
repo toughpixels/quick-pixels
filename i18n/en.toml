@@ -1,2 +1,8 @@
 [clickcopytext]
   other = 'click the above button to copy its content'
+[scrolltop]
+  other = 'Scroll to top'
+[youremail]
+  other = "Your email address"
+[submit]
+  other = "Submit"
