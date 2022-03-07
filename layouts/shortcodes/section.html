@@ -1,0 +1,1 @@
+<section {{ with .Get "style"}}style="{{ . | safeCSS }}"{{ end }} class="containerOverride{{ with .Get "class"}} {{.}}{{ end }}"><div class="container">{{ .Inner | markdownify }}</div></section>

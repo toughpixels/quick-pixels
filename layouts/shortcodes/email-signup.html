@@ -1,0 +1,14 @@
+<form action="https://tinyletter.com/freeseedshermosa" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/freeseedshermosa', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <div >
+        <div>
+            <label for="tlemail">
+                <span class="label">{{ .Get "label"}}</span>
+                <input class="textInput" type="email" name="email" id="tlemail" />
+            </label>
+        </div>
+        <div class="mt-sm">
+            <input type="hidden" value="1" name="embed"/><input class="btn btn-primary" type="submit" value="{{ .Get "submit"}}" />
+        </div>
+    </div>
+</form>
+        
