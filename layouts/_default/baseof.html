@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Lang }}">
     {{- partial "head.html" . -}}
     <body id="top" class="{{ .Kind }} {{ .Layout }} bg-light flex direction-column mh-100vh">
+        {{- partial "language-nav.html" . -}}
         {{- partial "header.html" . -}}
         <main class="py-section flex-1 prose">
             <div class="container">
@@ -10,7 +11,7 @@
              {{ if gt .WordCount 100 }}
         <div class="mt-lg mb-sm">
             <div class="container text-right">
-                <a href="#top">Scroll to top</a>
+                <a href="#top">{{ i18n "scrolltop" }}</a>
             </div>
         </div>
         {{ end }}

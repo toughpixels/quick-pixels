@@ -1,12 +1,4 @@
-
-
-<section class="bg-dark p-sm">
+<div class="box">
     <input type="button" class="btn btn-primary w-100 block text-center" value="{{ .Inner }}" onclick="copyInput(this)">
-    <div class="mt-sm text-center">click the above bar to copy its content</div>
-</section>
-<script>
-    function copyInput(elem) {
-      navigator.clipboard.writeText(elem.value);
-      alert("Copied the text: " + elem.value);
-    }
-  </script>
+    <div class="mt-sm text-center">({{ i18n "clickcopytext" }})</div>
+</div>

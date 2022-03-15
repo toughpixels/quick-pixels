@@ -1,0 +1,9 @@
+section {
+    padding: var(--sectionPaddingXs) 0;
+    @include respond(sm) {
+        padding: var(--sectionPadding) 0;
+    }
+    &:nth-child(odd) {
+        background: var(--lightBg-off);
+    }
+}

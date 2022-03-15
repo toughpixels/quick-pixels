@@ -1,3 +1,4 @@
-{{ $name := .Get "name"}}
-{{ $page := $.Site.GetPage $name }}
+{{ $name := .Get "name" }}
+{{ $en := index (where site.Sites "Language.Lang" "en") 0 }}
+{{ $page := $en.Site.GetPage (print "/hidden/replacements/" $name) }}
 {{ $page.Content }}
