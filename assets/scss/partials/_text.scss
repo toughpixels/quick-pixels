@@ -6,6 +6,7 @@ body {
 picture {
     display: block;
 }
+
 p:empty {
     display: none;
 }
@@ -22,7 +23,7 @@ h3 + * {
     margin-top: 1em;
 }
 h1 {
-    font-weight: 300;
+    font-weight: 700;
 }
 h3, h5 {
     font-weight: 400;
