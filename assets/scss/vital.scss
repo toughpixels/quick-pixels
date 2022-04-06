@@ -4,10 +4,12 @@
 // John: media queriers can't use var()
 @import "partials/respond";
 
+// vars themselves are defined in config.toml
+@import "partials/vars";
+
 @import "partials/colors";
 @import "partials/text";
 
-@import "partials/breakpoints";
 @import "partials/padding";
 @import "partials/margin";
 

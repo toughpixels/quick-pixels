@@ -1,5 +1,14 @@
+// example: 
+// @include varsToInline(
+//     "size",
+//     "font-size",
+//     (
+//         "headerLink": 4rem,
+//         "leadText": 2.5rem
+//     )
+// );
+
 @mixin varsToInline($prefix, $property, $nameValuesMap) {
-    // check out an example of this in _size.scss
     /* vars! 1. put these vars in the front-matter */
     :root {
         @each $name, $value in $nameValuesMap {
