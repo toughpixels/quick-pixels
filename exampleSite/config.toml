@@ -1,7 +1,7 @@
 languageCode = "en-us"
 theme = ["quick-pixels", "base"]
-title = "Your_site"
-baseURL = "https://example.com"
+title = ""
+baseURL = ""
 
 [taxonomies]
   category = 'categories'
@@ -10,7 +10,8 @@ baseURL = "https://example.com"
 
 [params]
   description = ""
-  imageSizes = "703 290"
+  homeLinkText = "Home"
+  imageSizes = "736 288"
   imageFormats = "webp jpg"
   themeVars1 = "--background_color: #fafafa;\n--action_color: #1b6ea5;\n--accent_color: #860059;\n--text_color: #202020;\n--font_family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;"
   themeVars2 = "--alt_background_color: #fbf8f2;\n--alt_action_color: var(--action_color);\n--alt_accent_color: var(--accent_color);\n--alt_text_color: var(--text_color);\n--alt_border_color: #6e0269;\n--font: 1.5rem/1.6 var(--font_family);\n--header_font_family: var(--font_family);"
