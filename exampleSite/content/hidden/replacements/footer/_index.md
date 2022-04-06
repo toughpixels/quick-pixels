@@ -9,7 +9,7 @@ categories: []
 tags: []
 description: 
 ---
-{{< row type="footer" class="bg-dark" >}}
+{{< row type="footer" class="b-solid b-heavy-top b-color-alt bg-alt" >}}
 
 This is the footer!
 
