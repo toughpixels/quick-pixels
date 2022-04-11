@@ -1,7 +1,7 @@
 languageCode = "en-us"
 theme = ["quick-pixels", "base"]
-title = "Your_site"
-baseURL = "https://example.com"
+title = ""
+baseURL = ""
 
 [taxonomies]
   category = 'categories'
@@ -10,9 +10,11 @@ baseURL = "https://example.com"
 
 [params]
   description = ""
-  imageSizes = "703 290"
+  homeLinkText = "Home"
+  imageSizes = "736 288"
   imageFormats = "webp jpg"
-  themeVars = "--lightBg: #fff;\n--lightBg-off: #ecf6fc;\n--lightBg-text: #020202;\n--lightBg-headers: #0497ce;\n--lightBg-link: #ce5125;\n--lightBg-aside: #692838;\n--lightBg-link-active: #860059;\n--lightBg-logo-lines: #ff0000;\n--lightBg-logo-fill: #fac1cb;\n--darkBg: #102736;\n--darkBg-text: #fff;\n--darkBg-headers: #d6c0e9;\n--darkBg-link: #93c0df;\n--site-header-border: #6e0269;\n--site-header-bg: #f1edf0;\n--site-header-bg: #fbf8f2;\n--aside-leftMargin:4rem;\n--aside-labelDisplay:block;\n--aside-topPadding: 5rem;"
+  themeVars1 = "--background_color: #fafafa;\n--action_color: #1b6ea5;\n--accent_color: #860059;\n--text_color: #202020;\n--font_family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;"
+  themeVars2 = "--alt_background_color: #fbf8f2;\n--alt_action_color: var(--action_color);\n--alt_accent_color: var(--accent_color);\n--alt_text_color: var(--text_color);\n--alt_border_color: #6e0269;\n--font: 1.5rem/1.6 var(--font_family);\n--header_font_family: var(--font_family);"
 
 
 [markup]

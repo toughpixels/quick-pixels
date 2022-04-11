@@ -9,8 +9,10 @@
             {{ $hiddenPage := $.Site.GetPage "/hidden"}}
             {{ range .Site.Menus.main }}
             {{ $page := $.Site.GetPage .URL }}
+            {{ if not ($page.IsHome) }}
             {{ if $page.Parent.IsHome }}
             {{ if not ($page.IsDescendant $hiddenPage) }}
+            
                     <li class="mt-0">
                         
                         <div class="flex">
@@ -47,6 +49,7 @@
     {{ end }}
                         
                     </li>
+                    {{ end }}
                     {{ end }}
                     {{ end }}
                     {{ end }}
