@@ -1,5 +1,16 @@
+{{ $url := .url }}
+{{ $type := "mp4" }}
+{{ if in $url ".mp3" }}
+{{ $type = "mpeg" }}
+{{ end }}
+{{ if in $url ".wav" }}
+{{ $type = "wav" }}
+{{ end }}
+{{ if in $url ".ogg" }}
+{{ $type = "ogg" }}
+{{ end }}
 <audio controls preload="auto">
-	<source {{ with .url }}src="{{ . }}"{{ end }}
-		type="audio/mp4">
+	<source src="{{ $url }}"
+		type="audio/{{ $type }}">
 	Your browser does not support the audio element
 </audio>
