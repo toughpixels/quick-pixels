@@ -1,4 +1,4 @@
-{{ if (ne .Parent.RelPermalink "/") }}
+{{ if not .Parent.IsHome }}
 <aside class="prose no-label">
 
   {{ $pages := $.Page.Parent.Pages }}

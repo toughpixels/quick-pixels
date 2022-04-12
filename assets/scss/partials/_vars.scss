@@ -72,11 +72,24 @@ h1 {
     --alt_text_color: var(--default_text_color);
     --alt_background_color: var(--default_background_color);
 }
+@mixin activeAccentColors($varAccent, $varAccentContrast) {
+    .c-active {
+        color: var(--#{$varAccent});
+    }
+    .bg-active {
+        background-color: var(--#{$varAccent});
+        color: var(--#{$varAccentContrast});
+    }
+}
+@include activeAccentColors(accent_color, background_color);
+
+
 .bg-alt {
     color: var(--alt_text_color);
     background-color: var(--alt_background_color);
     @include actionColor(alt_action_color, alt_background_color, alt_text_color);
     @include headerColor(alt_accent_color);
+    @include activeAccentColors(alt_accent_color, alt_background_color);
 }
 
 .c-accent {
@@ -91,9 +104,7 @@ h1 {
     --current_page_link_color: var(--accent_color);
     --header_color: var(--accent_color);
 }
-.active {
-    color: var(--current_page_link_color);
-}
+
 
 
 

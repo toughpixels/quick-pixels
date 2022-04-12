@@ -1,6 +1,7 @@
 {{ if ne $.Site.Params.hideHeader true }}
-<header>
-<div class="flex justify-between bg-alt b-solid b-heavy-bottom b-color-alt">
+<header class="">
+    {{- partial "language-nav.html" . -}}
+<div class="flex justify-between mt-0 bg-alt b-solid b-heavy-bottom b-color-alt">
     <a href="{{ .Site.BaseURL }}" class="p-sm size-headerLink">
         <span class="sr-only">{{ .Site.Title }}</span>
         {{- partial "logo.html" . -}}
