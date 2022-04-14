@@ -42,6 +42,8 @@ collections:
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
   - name: 'settings'
     label: 'Settings'
+    editor:
+      preview: false
     files:
       - file: 'config.toml'
         label: 'Settings'
