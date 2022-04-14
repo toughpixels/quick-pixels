@@ -30,8 +30,8 @@ collections:
             
       
       
-      - {label: "Child-links order", name: "child_links_order", widget: "select", options: [{ label: "Chicago", value: "ORD" },{ label: "Paris", value: "CDG" }, { label: "Tokyo", value: "HND" }], multiple: false, required: false}
-      - {label: "Redirects", name: "aliases", widget: "list", required: false, hint: "add URLs starting with a '\\' that you want to redirect to this page" }
+      # - {label: "Child-links order", name: "child_links_order", widget: "select", options: [{ label: "Chicago", value: "ORD" },{ label: "Paris", value: "CDG" }, { label: "Tokyo", value: "HND" }], multiple: false, required: false}
+      # - {label: "Redirects", name: "aliases", widget: "list", required: false, hint: "add URLs starting with a '\\' that you want to redirect to this page" }
       - {label: "Translation Key", name: "translationKey", widget: "string", hint: "Two pages with the same translation key will be considered different translations of the same content", required: false}
       
       - {label: "Categories", name: "categories", widget: "select", options: ['Thoughts', 'Behaviors'], multiple: true, required: false}

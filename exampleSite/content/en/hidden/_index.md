@@ -1,7 +1,6 @@
 ---
 title: Hidden
 draft: false
-aliases: false
 hide_footer: true
 hide_bottom_nav: false
 menu: main
