@@ -17,21 +17,15 @@
 .px-sm {
   @include px(1rem);
 }
-.px-md {
-  @include px(2rem);
+.pr-sm {
+  padding-right: 1rem;
 }
 .pl-md {
   padding-left: 2rem;
 }
-.pr-sm {
-  padding-right: 1rem;
-}
-
-
-
 .py-section {
-  @include py(var(--section-padding-vertical-mobile));
+  @include py(var(--section_y_padding_mobile));
   @include respond(sm) {
-    @include py(var(--section-padding-vertical-desktop));
+    @include py(var(--section_y_padding));
   }
 }

@@ -1,27 +1,15 @@
 .b-solid {
     border-style: solid;
 }
-.b-color-alt {
-    border-color: var(--alt_border_color);
-}
 .b-heavy-bottom {
     border-width: 0 0 3px;
 }
 .b-heavy-top {
     border-width: 3px 0 0;
 }
-.b-heavy {
-    border-width: 3px;
-}
-.b-bottom-current-heavy {
-    border-bottom: 3px solid currentColor;
-}
 .b-bottom-current {
     border-bottom: 1px solid currentColor;
 }
 .b-left-current {
     border-left: 1px solid currentColor;
-}
-.b-big-svg svg {
-    stroke-width: 2px;
 }

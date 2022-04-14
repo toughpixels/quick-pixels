@@ -1,9 +1,9 @@
 section {
-    padding: var(--sectionPaddingXs) 0;
+    padding: var(--section_y_padding_mobile) 0;
     @include respond(sm) {
-        padding: var(--sectionPadding) 0;
+        padding: var(--section_y_padding) 0;
     }
-    &:nth-child(odd) {
-        background: var(--lightBg-off);
+    &:nth-of-type(odd) {
+        background: var(--odd_numbered_sections_background_color);
     }
 }
