@@ -51,6 +51,9 @@ collections:
           label: "Params"
           widget: "object"
           fields:
-            - {label: "Site Vars", name: "siteVars", widget: "text", required: true} 
+            - {label: "Theme Vars 1", name: "themeVars1", widget: "text", required: true}
+            - {label: "Theme Vars 2", name: "themeVars2", widget: "text", required: true}
+            - {label: "Theme Vars 3", name: "themeVars3", widget: "text", required: true}
+            - {label: "Theme Vars 4", name: "themeVars4", widget: "text", required: true} 
             - {label: "Hide Header", name: "hideHeader", widget: "boolean", default: false, required: false}
             - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  
