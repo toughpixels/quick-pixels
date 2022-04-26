@@ -6,31 +6,26 @@
 
 // vars themselves are defined in config.toml
 @import "partials/vars";
+@import "partials/varsToInline";
 
-@import "partials/colors";
 @import "partials/text";
-
 @import "partials/padding";
 @import "partials/margin";
-
 @import "partials/container";
 @import "partials/flex";
-
 @import "partials/btn_textInput";
 @import "partials/mobileMenuIcon";
 
 // John: additions to add to Base?
 
-@import "partials/position";
 @import "partials/display";
-@import "partials/size";
-@import "partials/varsToInline";
-@import "partials/overflow";
+@import "partials/navMisc";
+@import "partials/svg";
+
+// marky
 @import "partials/minHeight";
 @import "partials/grid";
-@import "partials/compact-list";
 @import "partials/section";
-@import "partials/section-links";
 // project-specific
 
 @import "partials/border";

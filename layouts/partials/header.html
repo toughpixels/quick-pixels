@@ -1,13 +1,15 @@
 {{ if ne $.Site.Params.hideHeader true }}
-<header>
-<div class="flex justify-between bg-alt b-solid b-heavy-bottom b-color-alt">
-    <a href="{{ .Site.BaseURL }}" class="p-sm size-headerLink">
+<header class="">
+    {{- partial "language-nav.html" . -}}
+<div class="flex justify-between mt-0 bg-alt b-solid b-heavy-bottom b-color-alt">
+    
+    <a href="{{ "/" | absLangURL }}" class="p-xs px-sm size-homeLink decoration-none">
         <span class="sr-only">{{ .Site.Title }}</span>
         {{- partial "logo.html" . -}}
     </a>
     
     
-    <button aria-label="Toggle site navigation" type="button" class="p-sm link size-headerLink" data-toggle-class data-toggle-class-on-target data-toggle-escape data-toggle-modal data-toggle-target="#siteNavLightbox, body">
+    <button aria-label="Toggle site navigation" type="button" class="width-iconNavLink p-sm link lh-1 size-navLink" data-toggle-class data-toggle-class-on-target data-toggle-escape data-toggle-modal data-toggle-target="#siteNavLightbox, body">
         <span class="mobileMenuIcon is-bars"><span></span><span></span><span></span></span>
     </button>
 

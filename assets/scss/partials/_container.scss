@@ -1,8 +1,8 @@
 .container {
-    width: var(--container-width);
+    width: var(--container_width);
     max-width: 100%;
     margin: 0 auto;
-    @include px(var(--container-edge-gap));
+    @include px(var(--container_x_padding));
 }
 body {
     overflow-x: hidden;

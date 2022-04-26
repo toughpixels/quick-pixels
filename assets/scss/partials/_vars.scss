@@ -1,223 +1,88 @@
-// all of these vars are defined in config.toml
-
-// todo: when I'm done, transfer all the below :root stuff to config.toml
-
-// vars1: font_family
-// vars2 is probably just "font" cause it references an earlier var
-
-// https://www.w3schools.com/css/css_font_shorthand.asp
-
-
-body {
-    font: var(--font);
-    color: var(--text_color);
-    background-color: var(--background_color);
-}
-
-:root {
-    --h1_font: 3rem/1.2 var(--header_font);
-}
-h1 {
-    font: var(--h1_font);
-}
-
-// vars2
-
-@mixin headerColor($var) {
+@mixin colorScheme($textColor, $backgroundColor, $actionColor, $accentColor) {
     h1, h2, h3, h4, h5, h6 {
-        color: var(--#{$var});
+        color: var(--#{$accentColor});
     }
-}
-@mixin headerFontFamily($var) {
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--#{$var});
+    blockquote {
+        border-left-color: var(--#{$accentColor});
     }
-}
-@include headerFontFamily(header_font_family)
-@include headerColor(header_color);
-
-
-
-// vars1: default_action_color
-@mixin actionColor($var, $stateText, $stateBg) {
+    .minisection, aside {
+        border-color: var(--#{$accentColor});
+    }
+    aside:before {
+        color: var(--#{$accentColor});
+    }
+    .c-accent {
+        color: var(--#{$accentColor});
+    }
+    .bg-accent {
+        background-color: var(--#{$accentColor});
+        color: var(--#{$backgroundColor});
+    }
     a, .link {
-        color: var(--#{$var});
+        color: var(--#{$actionColor});
         &:hover,
         &:focus {
-            background-color: var(--#{$var});
-            color: var(--#{$stateText});
+            background-color: var(--#{$actionColor});
+            color: var(--#{$backgroundColor});
         }
     }
     .btn-primary {
-        color: var(--#{$stateText});
-        background-color: var(--#{$var});
-        border-color: var(--#{$var});
+        color: var(--#{$backgroundColor});
+        background-color: var(--#{$actionColor});
+        border-color: var(--#{$actionColor});
         &:hover,
         &:focus {
-            background-color: var(--#{$stateBg});
-            color: var(--#{$stateText});
+            background-color: var(--#{$textColor});
+            color: var(--#{$backgroundColor});
         }
     }
-
-    
     *:focus {
-        outline-color: var(--#{$var});
-      }
+        outline-color: var(--#{$actionColor});
+    }
+}
+body {
+    font-size: var(--default_font_size);
+    line-height: var(--default_line_height);
+    font-family: var(--font_family);
+    color: var(--text_color);
+    background-color: var(--background_color);
+    @include colorScheme(text_color, background_color, action_color, accent_color);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header_font_family);
 }
 
-@include actionColor(action_color, background_color, text_color);
-
-// vars2
-:root {
-    --alt_text_color: var(--default_text_color);
-    --alt_background_color: var(--default_background_color);
-}
 .bg-alt {
+    border-color: var(--alt_border_color);
     color: var(--alt_text_color);
     background-color: var(--alt_background_color);
-    @include actionColor(alt_action_color, alt_background_color, alt_text_color);
-    @include headerColor(alt_accent_color);
+    @include colorScheme(alt_text_color, alt_background_color, alt_action_color, alt_accent_color);
 }
 
-.c-accent {
-    color: var(--accent_color);
+@mixin headerVarsOutput($num) {
+    h#{$num} {
+        font-weight: var(--h#{$num}_weight);
+        line-height: var(--h#{$num}_line_height);
+        font-size: calc(var(--h#{$num}_size) / var(--header_size_mobile_reduction));
+        @include respond(sm) {
+            font-size: var(--h#{$num}_size);
+        }
+    }
 }
-.c-alt-accent {
-    color: var(--alt_accent_color)
-}
-
-// vars1: accent_color
-:root {
-    --current_page_link_color: var(--accent_color);
-    --header_color: var(--accent_color);
-}
-.active {
-    color: var(--current_page_link_color);
+@for $var from 1 to 7 {
+    @include headerVarsOutput($var);
 }
 
+.size-navLink {
+    font-size: var(--navLinks_size);
+}
+.size-homeLink {
+    font-size: var(--home_navLink_size);
+}
+.lead {
+    font-size: calc(var(--leadText_size) / var(--header_size_mobile_reduction));
+        @include respond(sm) {
+            font-size: var(--leadText_size);
+        }
+}
 
-
-// reference...
-// :root {
-//     --lightBg: #fff;
-//     --lightBg-off: #ecf6fc;
-//     --lightBg-text: #020202;
-//     --lightBg-headers: #421968;
-//     --lightBg-link: #1b6ea5;
-//     --lightBg-aside: #692838;
-//     --lightBg-link-active: #860059;
-//     --lightBg-logo-lines: #ff0000;
-//     --lightBg-logo-fill: #fac1cb;
-  
-//     --darkBg: #102736;
-//     --darkBg-text: #fff;
-//     --darkBg-headers: #d6c0e9;
-//     --darkBg-link: #93c0df;
-  
-//     --site-header-border: #6e0269;
-//     --site-header-bg: #f1edf0;
-//     --site-header-bg: #fbf8f2;
-//   }
-  
-//   .bg-light {
-//     background-color: var(--lightBg);
-//     color: var(--lightBg-text);
-//     h1,
-//     h2,
-//     h3,
-//     h4,
-//     h5,
-//     h6 {
-//       color: var(--lightBg-headers);
-//     }
-//     aside {
-//       border-color: var(--lightBg-aside);
-//       h1,
-//       h2,
-//       h3,
-//       h4,
-//       h5,
-//       h6 {
-//         color: var(--lightBg-aside);
-//       }
-//     }
-//     .b-bottom-header {
-//       border-color: var(--site-header-border);
-//       background-color: var(--site-header-bg);
-//     }
-//     a,
-//     button {
-//       color: var(--lightBg-link);
-//       &:hover,
-//       &:focus {
-//         background-color: var(--lightBg-link);
-//         color: var(--lightBg);
-//       }
-//       &.active {
-//         background-color: var(--lightBg-link-active) !important;
-//         color: var(--lightBg) !important;
-//       }
-//     }
-//     *:focus {
-//       outline-color: var(--lightBg-link);
-//     }
-//     .btn-primary {
-//       background-color: var(--lightBg-link);
-//       border-color: var(--lightBg-link);
-//       color: var(--lightBg);
-//       &:hover,
-//       &:focus {
-//         background-color: var(--lightBg-text);
-//         color: var(--lightBg);
-//         border-color: var(--lightBg-link);
-//       }
-//     }
-//     .btn-secondary {
-//       color: var(--lightBg-link);
-//       &:hover,
-//       &:focus {
-//         background-color: var(--lightBg-link);
-//         color: var(--lightBg);
-//         border-color: var(--lightBg-link);
-//       }
-//     }
-//     .bg-off {
-//       background-color: var(--lightBg-off);
-//     }
-//     .theme-logo svg {
-//       stroke: var(--lightBg-logo-lines);
-//       fill: var(--lightBg-logo-fill);
-//     }
-//   }
-//   .bg-dark {
-//     background-color: var(--darkBg);
-//     color: var(--darkBg-text);
-//     h1,
-//     h2,
-//     h3,
-//     h4,
-//     h5,
-//     h6 {
-//       color: var(--darkBg-headers);;
-//     }
-//     a {
-//       color: var(--darkBg-link);
-//       &:hover,
-//       &:focus {
-//         background-color: var(--darkBg-link);
-//         color: var(--darkBg);
-//       }
-//     }
-//     *:focus {
-//       outline-color: var(--darkBg-link);
-//     }
-//   }
-  
-
-
-// themeVars1 = "--default_font_family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;\n--default_accent_color: #2139D4;\n--default_action_color: #E41BD6"
-
-//   themeVars2 = "--default_background_color: #fafafa;\n--default_text_color: #202020;\n--contrast_background_color: var(--default_text_color);\n--contrast_background_text_color: var(--default_background_color);"
-//   themeVars3 = "--headerBackgroundColor: var(--defaultBackgroundColor);\n--headerBorderWidth: 4px;\n--headerBorderColor:var(--contrastBackgroundColor);\n--headerActionColor:var(--defaultActionColor);\n--headerAccentColor: var(--defaultAccentColor);"
-//   themeVars4 = ""
-//   themeVars5 = "--lightBg: #fff;\n--lightBg-off: #ecf6fc;\n--lightBg-text: #020202;\n--lightBg-headers: #421968;\n--lightBg-link: #1b6ea5;\n--lightBg-aside: #692838;\n--lightBg-link-active: #860059;\n--lightBg-logo-lines: #ff0000;\n--lightBg-logo-fill: #fac1cb;\n--darkBg: #102736;\n--darkBg-text: #fff;\n--darkBg-headers: #d6c0e9;\n--darkBg-link: #93c0df;\n--site-header-border: #6e0269;\n--site-header-bg: #f1edf0;\n--site-header-bg: #fbf8f2;\n--aside-leftMargin:4rem;\n--aside-labelDisplay:block;\n--aside-topPadding: 5rem;"

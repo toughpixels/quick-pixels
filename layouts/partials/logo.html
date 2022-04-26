@@ -2,5 +2,10 @@
 {{ if $logoSvg }}
     {{ $logoSvg.Content | safeHTML }}
 {{ else }}
-    {{ $.Site.Params.homeLinkText }}
+    {{ $homeLinkText := $.Site.Params.homeLinkText }}
+    {{ if eq $homeLinkText "Home" }}
+    {{ i18n "home" }}
+    {{ else }}
+    {{ $homeLinkText }}
+    {{ end }}
 {{ end }}

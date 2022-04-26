@@ -9,8 +9,3 @@
 [context.production.environment]
   HUGO_VERSION = "0.83.1"
   HUGO_ENV = "production"
-
-[[redirects]]
-  from = "/encouragement-groups"
-  to = "/groups"
-  status = 301
