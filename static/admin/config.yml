@@ -54,4 +54,5 @@ collections:
         - name: "disableKinds"
           label: "Disable Kinds"
           widget: "list"
+          field: {label: Item, name: item, widget: string}
             
