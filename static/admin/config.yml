@@ -51,3 +51,7 @@ collections:
             - {label: "Theme Vars 4", name: "themeVars4", widget: "text", required: true} 
             - {label: "Hide Header", name: "hideHeader", widget: "boolean", default: false, required: false}
             - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  
+        - name: "disableKinds"
+          label: "Disable Kinds"
+          widget: "list"
+            
