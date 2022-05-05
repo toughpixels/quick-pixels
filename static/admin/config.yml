@@ -26,7 +26,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", modes: ['raw'], hint: 'For an aside, copy/paste this: {{< aside >}}✨{{< /aside >}} and replace the stars with text'}
       - {label: "Date", name: "date", widget: "datetime"}
       - { name: "preview_image", label: "Preview Image", widget: "object", fields: [{label: "Image", name: image, widget: "image", hint: 'This will display in previews when this page is shared on social media.  If it is larger than 1200px wide, it will be scaled and cropped to fill the dimensions 1200px by 630px.  If it is smaller or equal to 1200px wide, it will be cropped to be a square.', required: false}, {label: "Alt Text", name: "alt", widget: "string", required: false}]}
-      - { name: "preview_audio", label: "Preview Audio URL", widget: "string", required: false}
+      - { name: "audio", label: "Preview Audio URL", widget: "string", required: false}
             
       
       
