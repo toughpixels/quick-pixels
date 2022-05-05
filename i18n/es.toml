@@ -6,3 +6,11 @@
   other = "Su dirección de correo electrónico"
 [submit]
   other = "Enviar"
+[home]
+  other = "Inicio"
+[parentPage]
+  other = "Página principal"
+[nextPage]
+  other = "Siguiente página"
+[previousPage]
+  other = "Pagina anterior"

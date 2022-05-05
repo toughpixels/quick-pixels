@@ -1,1 +1,42 @@
-theme vars!
+<div>
+  <label>
+    <span class="label">Color Picker</span>
+    <input class="textInput" id="colorPicker" name="color" data-jscolor="" />
+  </label>
+</div>
+<form action="">
+  <label>
+    <span class="label">Beginner Variables</span>
+    <textarea class="cssVars" name="vars1" rows="10">{{- $.Site.Params.themeVars1 -}}</textarea>
+  </label>
+  <label>
+    <span class="label">Intermediate Variables</span>
+    <textarea class="cssVars" name="vars2" rows="10">{{- $.Site.Params.themeVars2 -}}</textarea>
+  </label>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+<style>
+    .jscolor-picker div {
+        margin-top: 0;
+    }
+</style>
+<script>
+    const head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+    head.appendChild(style);
+    style.type = 'text/css';
+
+    const params = new URLSearchParams(window.location.search);
+    const paramsValArr = Array.from(params.entries());
+    paramsValArr.forEach(item => {
+        var elem = document.getElementsByName(item[0])[0];
+        elem.value = item[1];
+        if(elem.classList.contains('cssVars')) {
+            const styles = ':root {' + item[1] + '}'
+            style.appendChild(document.createTextNode(styles));
+        }
+    });
+
+
+</script>

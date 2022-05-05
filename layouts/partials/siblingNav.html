@@ -1,11 +1,11 @@
-{{ if (ne .Parent.RelPermalink "/") }}
+{{ if not .Parent.IsHome }}
 <aside class="prose no-label">
 
   {{ $pages := $.Page.Parent.Pages }}
 
     {{ with $pages.Next $.Page }}
     <div>
-    <h6 class="inline pr-sm">Previous Page:</h6>
+    <h6 class="inline pr-sm">{{ i18n "previousPage" }}:</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
   </div>
     {{ end }}
@@ -13,7 +13,7 @@
   
     {{ with $pages.Prev $.Page }}
 
-      <h6 class="inline pr-sm">Next Page:</h6>
+      <h6 class="inline pr-sm">{{ i18n "nextPage" }}:</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
 
     {{ end }}
@@ -21,7 +21,7 @@
 {{ if ne (len $pages) 1 }}
 <hr class="hideIfFirst"  />
 {{ end }}
-<h6 class="inline pr-sm">Parent Page:</h6><a href="{{ $.Page.Parent.Permalink }}">{{ $.Page.Parent.Title }}</a>
+<h6 class="inline pr-sm">{{ i18n "parentPage" }}:</h6><a href="{{ $.Page.Parent.Permalink }}">{{ $.Page.Parent.Title }}</a>
 
 </aside>
 

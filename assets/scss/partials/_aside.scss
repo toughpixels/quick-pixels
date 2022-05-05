@@ -3,14 +3,14 @@
     border-width: 5px;
     padding: 1rem;
 }
+
 aside {
     position: relative;
     margin-top: 3rem;
-    
     border-radius: 10px;
-    padding-top: var(--aside-topPadding);
+    padding-top: 4rem;
     &.no-label {
-        padding: 1rem;
+        padding-top: 1rem;
         &:before {
             display: none;
         }
@@ -20,15 +20,16 @@ aside {
         position: absolute;
         top: 0;
         left: 0;
-        border: 5px solid var(--lightBg-aside);
+        border: 5px solid currentColor;
         border-top-width: 0;
         border-left-width: 0;
         padding: 0 0.5rem;
         border-radius: 0 0 10px 0;
-        display: var(--aside-labelDisplay);
+        display: var(--aside_label_display);
+        font-weight: bold;
     }
     @include respond(sm) {
         margin-top: 5rem;
-        margin-left: var(--aside-leftMargin);
+        margin-left: var(--aside_left_margin);
     }
 }

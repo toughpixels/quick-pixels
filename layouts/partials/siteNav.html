@@ -1,20 +1,40 @@
 <div
     id="siteNavLightbox"
-	class="modal bg-light mt-0"
+	class="modal bg-alt mt-0"
 	role="dialog"
 	aria-hidden="true">
     <nav class="">
         <ul class="mt-0 list-reset">
+
+            {{ $siteLang := index (where .Sites "Language.Lang" .Lang) 0 }}
             {{ $currentPage := . }}
             {{ $hiddenPage := $.Site.GetPage "/hidden"}}
+            
             {{ range .Site.Menus.main }}
-            {{ $page := $.Site.GetPage .URL }}
+            {{ $noLangUrl := replace .URL (print "/" $.Lang ) "" }}
+            {{ $page := $siteLang.GetPage (print $noLangUrl) }}
             {{ if $page.Parent.IsHome }}
             {{ if not ($page.IsDescendant $hiddenPage) }}
+            {{ $hasActiveChild := false }}
+            {{ if $page.Sections }}
+                {{ range $page.Sections }}
+                    {{ if eq $currentPage.Permalink .Permalink }}
+                        {{ $hasActiveChild = true }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ $curIsOpenClass := "" }}
+            {{ $ariaHidden := "true" }}
+            {{ if $hasActiveChild }}
+                {{ $curIsOpenClass = "is-open" }}
+                {{ $ariaHidden = "false" }}
+            {{ end }}
+            
+            
                     <li class="mt-0">
                         
                         <div class="flex">
-                        <a class="flex-1 p-sm size-navLink decoration-none b-bottom-current {{ if $currentPage.IsMenuCurrent "main" . }}active {{ end }}"  href="{{ .URL }}">
+                        <a class="flex-1 p-xs px-sm size-navLink decoration-none b-bottom-current {{ if $currentPage.IsMenuCurrent "main" . }}active bg-accent{{ end }}"  href="{{ .URL }}">
                             {{ .Pre }}
                             <span>{{ .Name }}</span>
                         </a>
@@ -22,12 +42,12 @@
                         <button
         type="button"
         id="nav-{{ .Name | urlize }}-items-trigger"
-        class="p-sm px-md py-0 size-navLink bg-off b-bottom-current b-left-current"
+        class="width-iconNavLink p-xs px-sm py-0 size-navLink lh-1 bg-off b-bottom-current b-left-current link {{ $curIsOpenClass }}"
         data-toggle-class="is-open"
         data-toggle-target="#nav-{{ .Name | urlize }}-items">
         <span class="sr-only">Toggle {{ .Name }} Items</span>
         
-        <span class="toggleRotate">&#10095;</span>
+        <span class="toggleRotate size-reduce">&#10095;</span>
     </button>
 
     
@@ -37,10 +57,10 @@
                         {{ if $page.Sections }}
                         
             
-                        <ul class="openable bg-off mt-0 list-reset" role="region" aria-labelledby="nav-{{ .Name | urlize }}-items-trigger" aria-hidden="true" id="nav-{{ .Name | urlize }}-items">
+                        <ul class="openable bg-off mt-0 list-reset {{ $curIsOpenClass }}" role="region" aria-labelledby="nav-{{ .Name | urlize }}-items-trigger" aria-hidden="{{ $ariaHidden }}" id="nav-{{ .Name | urlize }}-items">
                         {{ range $page.Sections }}
                         
-    <li class="mt-0"><a href="{{ .Permalink }}" class="block p-sm pl-md size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active{{ end }}">{{ .Title }}</a></li>
+    <li class="mt-0"><a href="{{ .Permalink }}" class="block p-xs px-sm pl-md size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active bg-accent{{ end }}">{{ .Title }}</a></li>
 
     {{ end }}
     </ul>

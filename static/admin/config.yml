@@ -27,21 +27,15 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - { name: "preview_image", label: "Preview Image", widget: "object", fields: [{label: "Image", name: image, widget: "image", hint: 'This will display in previews when this page is shared on social media.  If it is larger than 1200px wide, it will be scaled and cropped to fill the dimensions 1200px by 630px.  If it is smaller or equal to 1200px wide, it will be cropped to be a square.', required: false}, {label: "Alt Text", name: "alt", widget: "string", required: false}]}
       - { name: "audio", label: "Preview Audio URL", widget: "string", required: false}
-            
-      
-      
-      - {label: "Child-links order", name: "child_links_order", widget: "select", options: [{ label: "Chicago", value: "ORD" },{ label: "Paris", value: "CDG" }, { label: "Tokyo", value: "HND" }], multiple: false, required: false}
-      - {label: "Redirects", name: "aliases", widget: "list", required: false, hint: "add URLs starting with a '\\' that you want to redirect to this page" }
       - {label: "Translation Key", name: "translationKey", widget: "string", hint: "Two pages with the same translation key will be considered different translations of the same content", required: false}
-      
-      - {label: "Categories", name: "categories", widget: "select", options: ['Thoughts', 'Behaviors'], multiple: true, required: false}
-      - {label: "Tags", name: "tags", widget: "select", options: ['Kindness to Myself', 'Kindness to Others', 'Kindness to the Environment', 'Chicago'], multiple: true, required: false}
       - {label: "Hide Footer", name: "hide_footer", widget: "boolean", default: false, required: false}
       - {label: "Menu", name: "menu", widget: "select", options: [ { label: "Main", value: "main" }, { label: "None", value: "none" } ], default: "main"
       }
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
   - name: 'settings'
     label: 'Settings'
+    editor:
+      preview: false
     files:
       - file: 'config.toml'
         label: 'Settings'
@@ -51,6 +45,14 @@ collections:
           label: "Params"
           widget: "object"
           fields:
-            - {label: "Site Vars", name: "siteVars", widget: "text", required: true} 
+            - {label: "Theme Vars 1", name: "themeVars1", widget: "text", required: true}
+            - {label: "Theme Vars 2", name: "themeVars2", widget: "text", required: true}
+            - {label: "Theme Vars 3", name: "themeVars3", widget: "text", required: true}
+            - {label: "Theme Vars 4", name: "themeVars4", widget: "text", required: true} 
             - {label: "Hide Header", name: "hideHeader", widget: "boolean", default: false, required: false}
             - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  
+        - name: "disableKinds"
+          label: "Disable Kinds"
+          widget: "list"
+          field: {label: Item, name: item, widget: string}
+            

@@ -6,3 +6,11 @@
   other = "Your email address"
 [submit]
   other = "Submit"
+[home]
+  other = "Home"
+[parentPage]
+  other = "Parent Page"
+[nextPage]
+  other = "Next Page"
+[previousPage]
+  other = "Previous Page"

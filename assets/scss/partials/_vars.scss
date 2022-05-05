@@ -1,0 +1,88 @@
+@mixin colorScheme($textColor, $backgroundColor, $actionColor, $accentColor) {
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--#{$accentColor});
+    }
+    blockquote {
+        border-left-color: var(--#{$accentColor});
+    }
+    .minisection, aside {
+        border-color: var(--#{$accentColor});
+    }
+    aside:before {
+        color: var(--#{$accentColor});
+    }
+    .c-accent {
+        color: var(--#{$accentColor});
+    }
+    .bg-accent {
+        background-color: var(--#{$accentColor});
+        color: var(--#{$backgroundColor});
+    }
+    a, .link {
+        color: var(--#{$actionColor});
+        &:hover,
+        &:focus {
+            background-color: var(--#{$actionColor});
+            color: var(--#{$backgroundColor});
+        }
+    }
+    .btn-primary {
+        color: var(--#{$backgroundColor});
+        background-color: var(--#{$actionColor});
+        border-color: var(--#{$actionColor});
+        &:hover,
+        &:focus {
+            background-color: var(--#{$textColor});
+            color: var(--#{$backgroundColor});
+        }
+    }
+    *:focus {
+        outline-color: var(--#{$actionColor});
+    }
+}
+body {
+    font-size: var(--default_font_size);
+    line-height: var(--default_line_height);
+    font-family: var(--font_family);
+    color: var(--text_color);
+    background-color: var(--background_color);
+    @include colorScheme(text_color, background_color, action_color, accent_color);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header_font_family);
+}
+
+.bg-alt {
+    border-color: var(--alt_border_color);
+    color: var(--alt_text_color);
+    background-color: var(--alt_background_color);
+    @include colorScheme(alt_text_color, alt_background_color, alt_action_color, alt_accent_color);
+}
+
+@mixin headerVarsOutput($num) {
+    h#{$num} {
+        font-weight: var(--h#{$num}_weight);
+        line-height: var(--h#{$num}_line_height);
+        font-size: calc(var(--h#{$num}_size) / var(--header_size_mobile_reduction));
+        @include respond(sm) {
+            font-size: var(--h#{$num}_size);
+        }
+    }
+}
+@for $var from 1 to 7 {
+    @include headerVarsOutput($var);
+}
+
+.size-navLink {
+    font-size: var(--navLinks_size);
+}
+.size-homeLink {
+    font-size: var(--home_navLink_size);
+}
+.lead {
+    font-size: calc(var(--leadText_size) / var(--header_size_mobile_reduction));
+        @include respond(sm) {
+            font-size: var(--leadText_size);
+        }
+}
+

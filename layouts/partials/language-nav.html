@@ -1,8 +1,8 @@
 {{ $thisLang := .Lang }}    
 {{ if .IsTranslated }}
-<ul class="flex justify-center list-reset">
+<ul class="flex justify-center list-reset bg-alt">
     {{ range .AllTranslations }}
-    <li class="mt-0"><a {{if eq $thisLang .Lang }}tabindex="-1"{{ end }} href="{{ .Permalink }}" class="block p-sm {{if eq $thisLang .Lang }}active{{ end }}">{{ .Language.LanguageName }}</a></li>
+    <li class="mt-0"><a {{if eq $thisLang .Lang }}tabindex="-1"{{ end }} href="{{ .Permalink }}" class="size-navLink decoration-none block p-xs px-sm {{if eq $thisLang .Lang }}bg-accent active{{ end }}">{{ .Language.LanguageName }}</a></li>
     {{ end }}
     </ul>
 {{ end }}

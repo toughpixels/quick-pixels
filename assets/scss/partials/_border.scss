@@ -1,5 +1,11 @@
-.b-bottom-header {
-    border-bottom: 3px solid currentColor;
+.b-solid {
+    border-style: solid;
+}
+.b-heavy-bottom {
+    border-width: 0 0 3px;
+}
+.b-heavy-top {
+    border-width: 3px 0 0;
 }
 .b-bottom-current {
     border-bottom: 1px solid currentColor;
@@ -9,4 +15,7 @@
 }
 .b-big-svg svg {
     stroke-width: 2px;
+}
+.stroke-0 svg {
+    stroke-width: 0;
 }
