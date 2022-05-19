@@ -26,7 +26,7 @@ collections:
       - {label: "Body", name: "body", widget: "markdown", modes: ['raw'], hint: 'For an aside, copy/paste this: {{< aside >}}✨{{< /aside >}} and replace the stars with text'}
       - {label: "Date", name: "date", widget: "datetime"}
       - { name: "preview_image", label: "Preview Image", widget: "object", fields: [{label: "Image", name: image, widget: "image", hint: 'This will display in previews when this page is shared on social media.  If it is larger than 1200px wide, it will be scaled and cropped to fill the dimensions 1200px by 630px.  If it is smaller or equal to 1200px wide, it will be cropped to be a square.', required: false}, {label: "Alt Text", name: "alt", widget: "string", required: false}]}
-      - { name: "preview_audio", label: "Preview Audio URL", widget: "string", required: false}
+      - { name: "audio", label: "Preview Audio URL", widget: "string", required: false}
       - {label: "Translation Key", name: "translationKey", widget: "string", hint: "Two pages with the same translation key will be considered different translations of the same content", required: false}
       - {label: "Hide Footer", name: "hide_footer", widget: "boolean", default: false, required: false}
       - {label: "Menu", name: "menu", widget: "select", options: [ { label: "Main", value: "main" }, { label: "None", value: "none" } ], default: "main"
@@ -66,3 +66,8 @@ collections:
             - {label: "Theme Vars 4", name: "themeVars4", widget: "text", required: true} 
             - {label: "Hide Header", name: "hideHeader", widget: "boolean", default: false, required: false}
             - {label: "Home Link Text", name: "homeLinkText", widget: "string", required: false}  
+        - name: "disableKinds"
+          label: "Disable Kinds"
+          widget: "list"
+          field: {label: Item, name: item, widget: string}
+            

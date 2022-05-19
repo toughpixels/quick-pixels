@@ -13,3 +13,9 @@
 .b-left-current {
     border-left: 1px solid currentColor;
 }
+.b-big-svg svg {
+    stroke-width: 2px;
+}
+.stroke-0 svg {
+    stroke-width: 0;
+}
