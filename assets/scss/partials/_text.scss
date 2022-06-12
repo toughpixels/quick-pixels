@@ -69,12 +69,12 @@ blockquote {
     padding-left: 1rem;
     border-left-width: 5px;
     border-left-style: solid;
-    > p:first-child:before {
-        content: "\0201c";
-    }
-    > p:last-child:after {
-        content: "\0201d";
-    }
+    // > p:first-child:before {
+    //     content: "\0201c";
+    // }
+    // > p:last-child:after {
+    //     content: "\0201d";
+    // }
 }
 
 

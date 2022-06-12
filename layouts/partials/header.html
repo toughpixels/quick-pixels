@@ -1,7 +1,7 @@
 {{ if ne $.Site.Params.hideHeader true }}
 <header class="">
     {{- partial "language-nav.html" . -}}
-<div class="flex justify-between mt-0 bg-alt b-solid b-heavy-bottom b-color-alt">
+<div class="flex justify-between mt-0 bg-alt b-solid b-heavy-bottom b-color-siteHeader">
     
     <a href="{{ "/" | absLangURL }}" class="p-xs px-sm size-homeLink decoration-none">
         <span class="sr-only">{{ .Site.Title }}</span>
