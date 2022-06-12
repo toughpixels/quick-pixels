@@ -19,3 +19,9 @@
 .stroke-0 svg {
     stroke-width: 0;
 }
+.b-color-siteHeader {
+    border-color: var(--alt_background_color);
+    body.is-active & {
+        border-color: var(--alt_action_color);
+    }
+}

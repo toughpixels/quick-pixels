@@ -60,7 +60,7 @@
                         <ul class="openable bg-off mt-0 list-reset {{ $curIsOpenClass }}" role="region" aria-labelledby="nav-{{ .Name | urlize }}-items-trigger" aria-hidden="{{ $ariaHidden }}" id="nav-{{ .Name | urlize }}-items">
                         {{ range $page.Sections }}
                         
-    <li class="mt-0"><a href="{{ .Permalink }}" class="block p-xs px-sm pl-md size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active bg-accent{{ end }}">{{ .Title }}</a></li>
+    <li class="mt-0"><a href="{{ .Permalink }}" class="block p-xs px-sm add-bullet size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active bg-accent{{ end }}">{{ .Title }}</a></li>
 
     {{ end }}
     </ul>
