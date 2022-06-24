@@ -11,10 +11,7 @@ defaultContentLanguageInSubdir = false
     languageName = "English"
     weight = 1
     contentDir = 'content/en'
-[languages.es]
-    languageName = 'Español'
-    weight = 2
-    contentDir = 'content/es'
+
 
 [taxonomies]
   category = 'categories'
