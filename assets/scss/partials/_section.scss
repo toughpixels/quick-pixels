@@ -6,4 +6,10 @@ section {
     &:nth-of-type(odd) {
         background: var(--odd_numbered_sections_background_color);
     }
+    &:first-of-type {
+        margin-top: var(--section_y_padding_mobile);
+        @include respond(sm) {
+            margin-top: var(--section_y_padding);
+        }
+    }
 }

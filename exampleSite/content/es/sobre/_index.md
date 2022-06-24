@@ -1,6 +1,6 @@
 ---
 title: Sobre
-draft: false
+draft: true
 hide_footer: true
 hide_bottom_nav: false
 translationKey: about

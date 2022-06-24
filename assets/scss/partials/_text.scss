@@ -28,11 +28,6 @@ figure {
 h1 {
     text-align: center;
 }
-h2 {
-    border: 4px solid currentColor;
-    padding: 0 0.5rem;
-    display: inline-block;
-}
 
 hr {
     margin: 2rem 0;
@@ -69,12 +64,12 @@ blockquote {
     padding-left: 1rem;
     border-left-width: 5px;
     border-left-style: solid;
-    > p:first-child:before {
-        content: "\0201c";
-    }
-    > p:last-child:after {
-        content: "\0201d";
-    }
+    // > p:first-child:before {
+    //     content: "\0201c";
+    // }
+    // > p:last-child:after {
+    //     content: "\0201d";
+    // }
 }
 
 
