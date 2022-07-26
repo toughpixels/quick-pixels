@@ -8,7 +8,9 @@
 {{ end }}
 <ul>
     {{ range $context.Sections }}
+        {{ if ne .Title "Hidden" }}
         <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
     {{ end }}
 </ul>
 
