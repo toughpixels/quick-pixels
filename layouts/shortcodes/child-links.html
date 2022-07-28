@@ -10,20 +10,18 @@
 {{ $context = $.Page }}
 {{ end }}
 <ul>
-<<<<<<< HEAD
     {{/* not DRY, sorry future me! */}}
     {{ if eq $sort "abc"}}
         {{ range $context.Sections.ByTitle }}
+            {{ if ne .Title "Hidden" }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
         {{ end }}
     {{ else }}
         {{ range $context.Sections }}
+            {{ if ne .Title "Hidden" }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-=======
-    {{ range $context.Sections }}
-        {{ if ne .Title "Hidden" }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
->>>>>>> ef83f54557b7198b7640ebc53d5f7a5e9286cc94
+            {{ end }}
         {{ end }}
     {{ end }}
 </ul>
