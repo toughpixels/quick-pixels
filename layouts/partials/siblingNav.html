@@ -3,25 +3,29 @@
 
   {{ $pages := $.Page.Parent.Pages }}
 
+  <div class="grid grid-cols-2-xs">
+  <div class="pr-sm">
     {{ with $pages.Next $.Page }}
-    <div>
-    <h6 class="inline pr-sm">{{ i18n "previousPage" }}:</h6>
+    <h6 class="">{{ i18n "previousPage" }}</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
+    {{ end }}
   </div>
-    {{ end }}
 
-  
+    <div class="text-right pl-sm b-left-current">
     {{ with $pages.Prev $.Page }}
-
-      <h6 class="inline pr-sm">{{ i18n "nextPage" }}:</h6>
+    
+      <h6 class="">{{ i18n "nextPage" }}</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
-
     {{ end }}
+    </div>
+  </div>
 
 {{ if ne (len $pages) 1 }}
 <hr class="hideIfFirst"  />
 {{ end }}
-<h6 class="inline pr-sm">{{ i18n "parentPage" }}:</h6><a href="{{ $.Page.Parent.Permalink }}">{{ $.Page.Parent.Title }}</a>
+<div class="text-center">
+<h6 class="">{{ i18n "parentPage" }}</h6><a href="{{ $.Page.Parent.Permalink }}">{{ $.Page.Parent.Title }}</a>
+</div>
 
 </aside>
 
