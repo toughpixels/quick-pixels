@@ -41,6 +41,21 @@ collections:
         label: 'Settings'
         name: 'settings'
         fields:
+        - name: "languages"
+          label: "Languages"
+          widget: "object"
+          required: false
+          fields:
+            - {label: "En Abreviation", name: 'en', widget: "object", fields: [
+              {label: "Language Name", name: 'languageName', widget: 'string', required: false},
+              {label: "Weight", name: 'weight', widget: 'number', required: false},
+              {label: "Content Directory", name: 'contentDir', widget: 'string', required: false}]
+              }
+            - {label: "Es Abreviation", name: 'es', widget: "object", fields: [
+              {label: "Language Name", name: 'languageName', widget: 'string', required: false},
+              {label: "Weight", name: 'weight', widget: 'number', required: false},
+              {label: "Content Directory", name: 'contentDir', widget: 'string', required: false}]
+              }
         - name: "params"
           label: "Params"
           widget: "object"

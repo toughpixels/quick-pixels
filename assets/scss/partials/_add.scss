@@ -1,0 +1,6 @@
+.add-bullet {
+    &:before {
+        content: "• ";
+        padding-right: 0.5em;
+    }
+}
