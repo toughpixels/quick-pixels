@@ -20,7 +20,7 @@
     {{ else }}
         {{ range $context.Sections }}
             {{ if ne .Title "Hidden" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})</li>
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ $.Page.Date.Format "2006-01-02" }})</li>
             {{ end }}
         {{ end }}
     {{ end }}

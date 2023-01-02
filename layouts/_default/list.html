@@ -1,9 +1,7 @@
 {{- define "main" }}
     <h1>{{ .Title }}</h1>
+    {{- partial "pagemeta.html" . -}}
     {{ .Content }}
-    
-    {{- partial "taxonomySection.html" . -}}
-
     {{ $hiddenPage := $.Site.GetPage "/hidden"}}
     {{ if ne .Parent $hiddenPage }}
     {{- partial "siblingNav.html" . -}}

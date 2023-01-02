@@ -18,3 +18,9 @@
 .grid-cols-2-xs {
     grid-template-columns: repeat(2,minmax(0,1fr));
 }
+
+.xs-grid-stack {
+    @media screen and (max-width: 767px) {
+        grid-template-columns: minmax(calc(100vw - 2rem),767px) !important;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="flex justify-center">
+<table>
+	{{ $tags := "tags" }}
+	{{ with .Param $tags }}
+	<tr>
+		<th class="text-right pr-sm">tags</th>
+		<td>{{ range $index, $item := . }}
+			{{- if gt $index 0 }}, {{ end -}}
+			{{ with $.Site.GetPage (printf "/%s/%s" $tags $item | urlize) -}}
+				<a href="{{ .Permalink }}">{{ $item }}</a>
+			{{- end -}}
+		{{- end -}}</td>
+	</tr>
+	{{ end }}
+	<tr>
+		<th class="text-right pr-sm">words</th>
+		<td>{{ $.Page.WordCount }}</td>
+	</tr>
+	<tr>
+		<th class="text-right pr-sm">date</th>
+		<td><time datetime="{{ $.Page.Date.Format "2006-01-02" }}">{{ $.Page.Date.Format "2006-01-02" }}</time></td>
+	</tr>
+</table>
+</div>
