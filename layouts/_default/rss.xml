@@ -22,14 +22,18 @@
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end -}}
     {{ range where $pages ".Section" "!=" "hidden" }}
+    {{ if not .IsHome }}
+    {{ if ne .Type "tags"}}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ if eq .Type "tags"}}(new tag){{ else }}{{ .Content | html }}{{ end }}</description>
+      <description>{{ .Content | html }}</description>
     </item>
+    {{ end }}
+    {{ end }}
     {{ end }}
   </channel>
 </rss>
