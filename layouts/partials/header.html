@@ -1,4 +1,4 @@
-{{ if ne $.Site.Params.hideHeader true }}
+{{ if .Params.show_header }}
 <header class="">
     {{- partial "language-nav.html" . -}}
 <div class="flex justify-between mt-0 bg-alt b-solid b-heavy-bottom b-color-siteHeader">
@@ -15,5 +15,5 @@
 </div>
 {{- partial "siteNav.html" . -}}
 </header>
-{{/* partial "breadcrumbs.html" . */}}
+{{- partial "breadcrumbs.html" . -}}
 {{ end }}

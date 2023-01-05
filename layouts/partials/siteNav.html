@@ -5,19 +5,15 @@
 	aria-hidden="true">
     <nav class="">
         <ul class="mt-0 list-reset">
-
             {{ $siteLang := index (where .Sites "Language.Lang" .Lang) 0 }}
             {{ $currentPage := . }}
-            {{ $hiddenPage := $.Site.GetPage "/hidden"}}
-            
-            {{ range .Site.Menus.main }}
-            {{ $noLangUrl := replace .URL (print "/" $.Lang ) "" }}
-            {{ $page := $siteLang.GetPage (print $noLangUrl) }}
-            {{ if $page.Parent.IsHome }}
-            {{ if not ($page.IsDescendant $hiddenPage) }}
-            {{ $hasActiveChild := false }}
-            {{ if $page.Sections }}
-                {{ range $page.Sections }}
+            {{ $home := .Site.GetPage "/"}}
+            {{ range where $home.Pages "Section" "!=" "-hidden" }}
+                {{ $page := .}}
+                {{ $hasActiveChild := false }}
+                
+            {{ if $page.Pages }}
+                {{ range $page.Pages }}
                     {{ if eq $currentPage.Permalink .Permalink }}
                         {{ $hasActiveChild = true }}
                     {{ end }}
@@ -34,11 +30,10 @@
                     <li class="mt-0">
                         
                         <div class="flex">
-                        <a class="flex-1 p-xs px-sm size-navLink decoration-none b-bottom-current {{ if $currentPage.IsMenuCurrent "main" . }}active bg-accent{{ end }}"  href="{{ .URL }}">
-                            {{ .Pre }}
+                        <a class="flex-1 p-xs px-sm size-navLink decoration-none b-bottom-current {{ if eq $currentPage $page  }}active bg-accent{{ end }}"  href="{{ .Permalink }}">
                             <span>{{ .Name }}</span>
                         </a>
-                        {{ if $page.Sections }}
+                        {{ if $page.Pages }}
                         <button
         type="button"
         id="nav-{{ .Name | urlize }}-items-trigger"
@@ -53,12 +48,11 @@
     
                         {{ end }}
                         </div>
-                        
-                        {{ if $page.Sections }}
+                        {{ if $page.Pages }}
                         
             
                         <ul class="openable bg-off mt-0 list-reset {{ $curIsOpenClass }}" role="region" aria-labelledby="nav-{{ .Name | urlize }}-items-trigger" aria-hidden="{{ $ariaHidden }}" id="nav-{{ .Name | urlize }}-items">
-                        {{ range $page.Sections }}
+                        {{ range $page.Pages }}
                         
     <li class="mt-0"><a href="{{ .Permalink }}" class="block p-xs px-sm add-bullet size-navLink decoration-none b-bottom-current  {{ if eq $currentPage.Permalink .Permalink }}active bg-accent{{ end }}">{{ .Title }}</a></li>
 
@@ -67,8 +61,6 @@
     {{ end }}
                         
                     </li>
-                    {{ end }}
-                    {{ end }}
                     {{ end }}
                     
             

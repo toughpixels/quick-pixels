@@ -14,6 +14,9 @@
 .p-sm {
   padding: 1rem;
 }
+.px-xs {
+  @include px(0.5rem);
+}
 .px-sm {
   @include px(1rem);
 }
@@ -22,6 +25,9 @@
 }
 .pl-sm {
   padding-left: 1rem;
+}
+.pl-xs {
+  padding-left: 0.5rem;
 }
 .pl-md {
   padding-left: 2rem;

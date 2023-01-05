@@ -81,4 +81,9 @@ blockquote {
 .active {
     text-decoration: none;
     pointer-events: none;
+    color: inherit;
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 }

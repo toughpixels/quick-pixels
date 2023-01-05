@@ -1,7 +1,7 @@
-{{ if not .Parent.Params.hideChildrenSiblingNav }}
+{{ if .Parent.Params.show_sibling_nav_of_children }}
 <aside class="prose no-label">
 
-  {{ $pages := where $.Page.Parent.Pages ".RelPermalink" "!=" "/hidden/"  }}
+  {{ $pages := where $.Page.Parent.Pages ".RelPermalink" "!=" "/-hidden/"  }}
 
   <div class="grid grid-cols-2-xs">
   <div class="pr-sm">

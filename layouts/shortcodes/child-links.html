@@ -1,26 +1,26 @@
 {{ $context := false }}
 {{ $parentUrl := .Get "parent_url" }}
 {{ $sort := .Get "sort" }}
-{{ $sortValue := "ByTitle" }}
-
+{{ $showDate := .Get "show_date" }}
 
 {{ if $parentUrl }}
 {{ $context = $.Site.GetPage $parentUrl }}
 {{ else }}
 {{ $context = $.Page }}
 {{ end }}
+
 <ul>
     {{/* not DRY, sorry future me! */}}
     {{ if eq $sort "abc"}}
-        {{ range $context.Sections.ByTitle }}
+        {{ range $context.Pages.ByTitle }}
             {{ if ne .Title "Hidden" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
             {{ end }}
         {{ end }}
     {{ else }}
-        {{ range $context.Sections }}
+        {{ range $context.Pages }}
             {{ if ne .Title "Hidden" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})</li>
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq $showDate "true" }} ({{ .Date.Format "2006-01-02" }}){{ end }}</li>
             {{ end }}
         {{ end }}
     {{ end }}

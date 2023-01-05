@@ -1,3 +1,4 @@
+{{ if .Param "show_meta" }}
 <div class="flex justify-center">
 <table>
 	{{ $tags := "tags" }}
@@ -22,3 +23,4 @@
 	</tr>
 </table>
 </div>
+{{ end }}

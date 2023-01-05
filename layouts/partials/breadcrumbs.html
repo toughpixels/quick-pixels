@@ -1,7 +1,8 @@
-
-<ol  class="nav navbar-nav">
+{{ if and (.Param "show_breadcrumbs") (not .IsHome) }}
+<ol  class="nav navbar-nav list-reset px-xs inline-flex flex-wrap">
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
   </ol>
+  {{ end }}
 
   {{ define "breadcrumbnav" }}
   {{ if .p1.Parent }}
@@ -9,7 +10,7 @@
   {{ else if not .p1.IsHome }}
   {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
-  <li{{ if eq .p1 .p2 }} class="active"{{ end }}>
-    <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
+  <li class="inline-flex p-xs{{ if eq .p1 .p2 }} active{{ end }} mt-0">
+    <a class="" href="{{ .p1.Permalink }}">{{ if .p1.IsHome }}Home{{ else }}{{ .p1.Title }}{{ end }}</a>{{ if ne .p1 .p2 }}<span class="pl-sm">></span> {{ end }}
   </li>
   {{ end }}
