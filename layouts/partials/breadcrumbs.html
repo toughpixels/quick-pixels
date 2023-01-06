@@ -1,4 +1,4 @@
-{{ if and (.Param "show_breadcrumbs") (not .IsHome) }}
+{{ if and (.Param "showBreadcrumbs") (not .IsHome) }}
 <ol  class="nav navbar-nav list-reset px-xs inline-flex flex-wrap">
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
   </ol>

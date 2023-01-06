@@ -1,4 +1,4 @@
-{{ if .Parent.Params.show_sibling_nav_of_children }}
+{{ if .Parent.Params.showSiblingNavOfChildPages }}
 <aside class="prose no-label">
 
   {{ $pages := where $.Page.Parent.Pages ".RelPermalink" "!=" "/-hidden/"  }}

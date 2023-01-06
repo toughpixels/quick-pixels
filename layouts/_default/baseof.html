@@ -5,20 +5,11 @@
         {{- partial "header.html" . -}}
         <main class="py-section flex-1 prose">
             <div class="container">
-        {{- block "main" . }}{{- end }}
+                {{- block "main" . }}{{- end }}
              </div>
-             {{ if gt .WordCount 100 }}
-        <div class="mt-lg mb-sm">
-            <div class="container text-right">
-                <a href="#top">{{ i18n "scrolltop" }}</a>
-            </div>
-        </div>
-        {{ end }}
+             {{- partial "scrollTop.html" . -}}
         </main>
-        {{ if ne (.Param "hide_footer") true }}
         {{- partial "footer.html" . -}}
-        {{ end }}
-        {{- partial "footer-bonus.html" . -}}
         {{- partial "scripts.html" . -}}
     </body>
 </html>

@@ -1,9 +1,9 @@
-{{ if .Params.show_header }}
+{{ if .Params.showHeader }}
 {{/* https://twikito.github.io/easy-toggle-state/#lightbox */}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-toggle-state/1.16.0/easy-toggle-state.min.js" integrity="sha512-hG7MyW8uOh26+C0KutsTVCJm8waH4iA9vSa8gOsosTHdIh6JjOE/MRn8vmcFg2rLGTnpVWmSKcDJF48cB89/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{ end }}
 
-{{ if .Params.add_external_link_javascript }}
+{{ if .Params.addExternalLinkJavascript }}
 <script>
     for (var links = document.querySelectorAll("a[href^=http], a[href^=mailto]"), i = 0, a; a = links[i]; i++) {
         if (a.host !== location.host) {

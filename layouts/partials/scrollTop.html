@@ -1,0 +1,7 @@
+{{ if gt .WordCount $.Site.Params.minimumWordsNeededToShowScrollTopLink }}
+	<div class="mt-lg mb-sm">
+		<div class="container text-right">			
+			<a href="#top">{{ i18n "scrolltop" }}</a>
+		</div>
+	</div>
+{{ end }}
