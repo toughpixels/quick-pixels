@@ -29,7 +29,6 @@ aside {
         font-weight: bold;
     }
     @include respond(sm) {
-        margin-top: 5rem;
         margin-left: var(--aside_left_margin);
     }
 }

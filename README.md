@@ -14,6 +14,9 @@ If you're using public access to quick pixels, use this
 - `git submodule add https://github.com/toughpixels/quick-pixels.git themes/quick-pixels`
 - Copy the example site to your project directory: `cp -r themes/quick-pixels/exampleSite/* .`
 
+You'll also need the base theme:
+`git submodule add https://github.com/toughpixels/base.git themes/base`
+
 ## Editing Quick Pixels
 
 To run a preview site for the theme, run
