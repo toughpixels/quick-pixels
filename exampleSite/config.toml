@@ -24,6 +24,8 @@ defaultContentLanguageInSubdir = false
 #   category = 'categories'
 #   tag = 'tags'
 
+# comment out the below if you want to use tags/categories
+disableKinds = ["taxonomy", "term"]
 
 [params]
   description = ""

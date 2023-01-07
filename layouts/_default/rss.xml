@@ -21,7 +21,7 @@
     {{- with .OutputFormats.Get "RSS" -}}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end -}}
-    {{ range where $pages ".Section" "!=" "hidden" }}
+    {{ range where $pages ".Section" "!=" "-hidden" }}
     {{ if not .IsHome }}
     {{ if ne .Type "tags"}}
     <item>
