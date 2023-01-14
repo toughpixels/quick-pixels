@@ -2,23 +2,26 @@
 <aside class="prose no-label">
 
   {{ $pages := where $.Page.Parent.Pages ".RelPermalink" "!=" "/-hidden/"  }}
-
-  <div class="">
-  <div class="pl-sm text-right">
-    {{ with $pages.Next $.Page }}
-    <h6 class="">{{ i18n "previousPage" }}</h6>
-    <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
-    {{ end }}
-  </div>
-
-    <div class="text-left pl-sm">
-    {{ with $pages.Prev $.Page }}
+  
+  {{ with $pages.Prev $.Page }}
+    <div class="text-right pl-sm">
+    
     
       <h6 class="">{{ i18n "nextPage" }}</h6>
     <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
-    {{ end }}
+    
     </div>
+    {{ end }}
+
+  {{ with $pages.Next $.Page }}
+  <div class="pl-sm text-left">
+    
+    <h6 class="">{{ i18n "previousPage" }}</h6>
+    <a href="{{ .Permalink }}" class="">{{ .Title }}</a>
   </div>
+  {{ end }}
+  
+  
 
 {{ if ne (len $pages) 1 }}
 <hr class="hideIfFirst"  />
