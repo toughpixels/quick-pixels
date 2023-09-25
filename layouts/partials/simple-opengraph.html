@@ -10,10 +10,12 @@ image should be: 1200px by 630px tall or similar aspect ratio
 
 {{ with .Params.preview_image.image }}
 {{ $ogImage := resources.Get . }}
+{{ with $ogImage.Width }}
 {{ if gt $ogImage.Width 1200 }}
     {{ $ogImage = $ogImage.Fill "1200x630 jpg"  }}
 {{ else }}
     {{ $ogImage = $ogImage.Fill (print $ogImage.Width "x" $ogImage.Width " jpg")  }}
+{{ end }}
 {{ end }}
 <meta property="og:image" content="{{ $ogImage.Permalink }}" />
 {{ end }}
