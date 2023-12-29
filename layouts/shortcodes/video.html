@@ -1,0 +1,19 @@
+{{- $video_src := .Get "src" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $style := .Get "style" -}}
+{{ if not $width }}
+{{ $width = 16 }}
+{{ end }}
+{{ if not $height }}
+{{ $height = 9 }}
+{{ end }}
+{{ $paddingBottom := div (mul (int $height) 100.00) (int $width) }}
+{{- $video_type := .Get "type" -}}
+<div class="block mx-auto" style="{{ $style | safeCSS }}">
+<div style="position: relative; padding-bottom: {{ $paddingBottom }}%">
+<video playsinline controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+	<source src="{{ $video_src }}" type="video/{{ $video_type }}">
+</video>
+</div>
+</div>
