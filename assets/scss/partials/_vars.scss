@@ -46,8 +46,8 @@ body {
     font-family: var(--font_family);
     color: var(--text_color);
     background-color: var(--background_color);
-    @include colorScheme(text_color, background_color, action_color, accent_color);
 }
+@include colorScheme(text_color, background_color, action_color, accent_color);
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--header_font_family);
 }

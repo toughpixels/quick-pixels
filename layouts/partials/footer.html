@@ -1,6 +1,5 @@
 {{ if .Param "showFooter" }}
-{{ $name := (print "/-hidden/-parts/footer-" .Lang) }}
-{{ $enSite := index (where .Sites "Language.Lang" "en") 0 }}
-{{ $page := $enSite.Site.GetPage $name }}
+{{ $name := (print "/-hidden/-parts/footer") }}
+{{ $page := .Site.GetPage $name }}
 {{ $page.Content }}
 {{ end }}
