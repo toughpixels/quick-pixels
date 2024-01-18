@@ -6,6 +6,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
 
 textarea {
@@ -14,8 +15,8 @@ textarea {
 table {
   border-collapse: collapse;
 }
+
 img,
-svg,
 video,
 canvas,
 audio,
@@ -23,7 +24,6 @@ iframe,
 embed,
 object {
   display: block;
-  vertical-align: middle;
 }
 
 img,

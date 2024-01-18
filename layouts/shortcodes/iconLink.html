@@ -1,0 +1,6 @@
+{{ $icon := .Get "icon" }}
+{{ $url := .Get "url" }}
+{{ $text := .Get "text" }}
+{{ $iconStyle := .Get "iconStyle" }}
+{{ $iconUrl := print "/static/icons/" $icon ".svg" }}
+<a href="{{ $url }}"><span class="icon" style="{{ $iconStyle | safeCSS }}">{{ readFile $iconUrl | safeHTML }}</span><span>{{ $text }}</span></a>

@@ -1,0 +1,3 @@
+{{ $icon := .Get "icon" }}
+{{ $url := print "/static/icons/" $icon ".svg" }}
+{{ readFile $url | safeHTML }}

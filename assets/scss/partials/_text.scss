@@ -4,12 +4,13 @@ picture {
 p:empty {
     display: none;
 }
-.block, div, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, audio, picture, figure {
+.block, div, h1, h2, h3, h4, h5, h6, p, li, ul, ol, blockquote, audio, picture, figure {
     margin-top: 1.5em;
+    .inner-my-compact & {
+        margin-top: 0.5em;
+    }
 }
-li {
-    margin-top: 1em;
-}
+
 img {
     margin: 0 auto;
 }

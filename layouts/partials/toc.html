@@ -1,0 +1,10 @@
+{{ if .Param "showTableOfContents" }}
+<aside class="no-label">
+	<details class="block">
+		<summary>Toggle Table of Contents</summary>
+		<div class="mt-sm inner-my-compact">
+			{{ .TableOfContents }}
+		</div>
+	</details>
+</aside>
+{{ end }}
