@@ -1,0 +1,8 @@
+{{- $width := int (.Get "width") -}}
+{{- $height := int (.Get "height") -}}
+
+<div class="iframeWrapper" style="padding-bottom: {{ div (mul 100.00 $height) $width }}%">
+	{{ $width }} {{ $height }}
+	{{ div (mul 100.00 $height) $width }}
+	{{ .Inner  }}
+</div>
