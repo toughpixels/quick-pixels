@@ -1,28 +1,19 @@
-{{ $context := false }}
 {{ $parentUrl := .Get "parent_url" }}
-{{ $sort := .Get "sort" }}
 {{ $showDate := .Get "show_date" }}
+{{ $context :=  $.Page }}
 
 {{ if $parentUrl }}
 {{ $context = $.Site.GetPage $parentUrl }}
-{{ else }}
-{{ $context = $.Page }}
+{{ end }}
+
+{{ $pages := where $context.Pages "Title" "ne" "Hidden" }}
+{{ if eq (.Get "filter") "latest" }}
+{{ $pages = where $context.Pages "Title" "ne" "Hidden" | first 1 }}
 {{ end }}
 
 <ul>
-    {{/* not DRY, sorry future me! */}}
-    {{ if eq $sort "abc"}}
-        {{ range $context.Pages.ByTitle }}
-            {{ if ne .Title "Hidden" }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        {{ end }}
-    {{ else }}
-        {{ range $context.Pages }}
-            {{ if ne .Title "Hidden" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq $showDate "true" }} ({{ .Date.Format "2006-01-02" }}){{ end }}</li>
-            {{ end }}
-        {{ end }}
+    {{ range $pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq $showDate "true" }} ({{ .Date.Format "2006-01-02" }}){{ end }}</li>
     {{ end }}
 </ul>
 

@@ -27,6 +27,7 @@ defaultContentLanguageInSubdir = false
 # comment out the below if you want to use tags/categories
 disableKinds = ["taxonomy", "term"]
 
+
 [params]
   description = ""
   homeLinkText = "Home"
