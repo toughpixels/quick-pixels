@@ -1,31 +1,33 @@
 languageCode = "en-us"
 theme = ["quick-pixels", "base"]
-title = "Example"
-baseURL = "https://example.com"
+title = "School of Me"
+baseURL = "https://schoolofme.netlify.app"
 
 # If you don't want english/spanish support,
 # comment out the below settings
 # delete the /content/es/ folder
 # and move everything in the /content/en/ folder to /content/
 # and delete the (now empty) /content/en/ folder
-defaultContentLanguage = 'en'
-defaultContentLanguageInSubdir = false
-[languages]
-[languages.en]
-    languageName = "English"
-    weight = 1
-    contentDir = 'content/en'
-[languages.es]
-   languageName = 'Español'
-   weight = 2
-   contentDir = 'content/es'
+
+
+# defaultContentLanguage = 'en'
+# defaultContentLanguageInSubdir = false
+# [languages]
+# [languages.en]
+#     languageName = "English"
+#     weight = 1
+#     contentDir = 'content/en'
+# [languages.es]
+#    languageName = 'Español'
+#    weight = 2
+#    contentDir = 'content/es'
 
 # [taxonomies]
 #   category = 'categories'
 #   tag = 'tags'
 
 # comment out the below if you want to use tags/categories
-disableKinds = ["taxonomy", "term"]
+# disableKinds = ["taxonomy", "term"]
 
 
 [params]
