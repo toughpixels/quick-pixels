@@ -1,10 +1,26 @@
 {{ if .Param "showMeta" }}
 <div class="flex justify-center">
 <table>
+	{{ if .Param "showMetaCategories" }}
+	{{ $categories := "categories" }}
+	{{ with .Param $categories }}
+	<tr>
+		<th class="text-right pr-sm">Categories</th>
+		<td>{{ range $index, $item := . }}
+			{{- if gt $index 0 }}, {{ end -}}
+			{{ with $.Site.GetPage (printf "/%s/%s" $categories $item | urlize) -}}
+				<a href="{{ .Permalink }}">{{ $item }}</a>
+			{{- end -}}
+		{{- end -}}</td>
+	</tr>
+	{{ end }}
+	{{ end }}
+
+	{{ if .Param "showMetaTags" }}
 	{{ $tags := "tags" }}
 	{{ with .Param $tags }}
 	<tr>
-		<th class="text-right pr-sm">tags</th>
+		<th class="text-right pr-sm">Tags</th>
 		<td>{{ range $index, $item := . }}
 			{{- if gt $index 0 }}, {{ end -}}
 			{{ with $.Site.GetPage (printf "/%s/%s" $tags $item | urlize) -}}
@@ -13,14 +29,20 @@
 		{{- end -}}</td>
 	</tr>
 	{{ end }}
+	{{ end }}
+	
+	{{ if .Param "showMetaWords" }}
 	<tr>
-		<th class="text-right pr-sm">words</th>
+		<th class="text-right pr-sm">Words</th>
 		<td>{{ $.Page.WordCount }}</td>
 	</tr>
+	{{ end }}
+	{{ if .Param "showMetaDate" }}
 	<tr>
-		<th class="text-right pr-sm">date</th>
+		<th class="text-right pr-sm">Date</th>
 		<td><time datetime="{{ $.Page.Date.Format "2006-01-02" }}">{{ $.Page.Date.Format "2006-01-02" }}</time></td>
 	</tr>
+	{{ end }}
 </table>
 </div>
 {{ end }}

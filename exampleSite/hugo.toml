@@ -1,7 +1,7 @@
 languageCode = "en-us"
 theme = ["quick-pixels", "base"]
-title = "My Website"
-baseURL = "https://example.com"
+title = ""
+baseURL = "https://example.netlify.app"
 
 # If you don't want english/spanish support,
 # comment out the below settings
@@ -46,7 +46,13 @@ baseURL = "https://example.com"
   showHeader = true
   showFooter = true
   showBreadcrumbs = true
+
   showMeta = true
+  showMetaCategories = true
+  showMetaTags = true
+  showMetaWords = true
+  showMetaDate = true
+  
   showSiblingNavOfChildPages = true
   addExternalLinkJavascript = true
 

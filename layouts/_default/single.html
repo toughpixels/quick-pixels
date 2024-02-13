@@ -1,5 +1,5 @@
 {{- define "main" }}
-    <h1>{{ .Title }}</h1>
+    {{- partial "pageTitle.html" . -}}
     {{- partial "pagemeta.html" . -}}
     {{- partial "toc.html" . -}}
     {{ .Content }}
