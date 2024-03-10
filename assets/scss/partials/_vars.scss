@@ -80,6 +80,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: var(--home_navLink_size);
 }
 .lead {
+    text-align: var(--leadText_align);
     font-size: calc(var(--leadText_size) / var(--header_size_mobile_reduction));
         @include respond(sm) {
             font-size: var(--leadText_size);

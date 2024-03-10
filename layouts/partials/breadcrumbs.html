@@ -11,6 +11,6 @@
   {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
   <li class="inline-flex p-xs{{ if eq .p1 .p2 }} active{{ end }} mt-0">
-    <a class="" href="{{ .p1.Permalink }}">{{ if .p1.IsHome }}Home{{ else }}{{ .p1.Title }}{{ end }}</a>{{ if ne .p1 .p2 }}<span class="pl-sm">></span> {{ end }}
+    <a {{ if eq .p1 .p2 }} tabindex="-1"{{ end }} href="{{ .p1.Permalink }}">{{ if .p1.IsHome }}Home{{ else }}{{ .p1.Title }}{{ end }}</a>{{ if ne .p1 .p2 }}<span class="pl-sm">></span> {{ end }}
   </li>
   {{ end }}
