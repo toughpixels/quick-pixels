@@ -55,7 +55,13 @@
 {{(printf "</%s>" $.style)|safeHTML}}
 				{{end}}
 
-				
+				{{if $.description}}
+					{{if .Description}}
+<p>{{.Description}}</p>
+					{{else}}
+<p>{{.Summary}}</p>
+					{{end}}
+				{{end}}
 			{{end}}
 			{{ if lt $.count $.depth}}
 
