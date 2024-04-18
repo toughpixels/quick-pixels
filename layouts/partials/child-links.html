@@ -1,3 +1,4 @@
+{{ if eq (.Param "showChildLinks") true }}
 {{ $showDate := .Param "childLinks_showDate" }}
 {{ $context :=  .Page }}
 
@@ -9,4 +10,4 @@
         <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq $showDate "true" }} ({{ .Date.Format "2006-01-02" }}){{ end }}</li>
     {{ end }}
 </ul>
-
+{{ end }}

@@ -1,1 +1,3 @@
+{{ if eq (.Param "showDescription") true }}
 {{ with .Param "description" }}<p class="lead">{{ . }}</p>{{ end }}
+{{ end }}

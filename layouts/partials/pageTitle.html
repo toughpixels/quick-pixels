@@ -1,1 +1,1 @@
-<h1 {{ with .Params.hideTitle }}class="sr-only"{{ end }}>{{ .Title }}</h1>
+<h1 {{ if eq (.Param "showTitle") false }}class="sr-only"{{ end }}>{{ .Title }}</h1>
