@@ -4,22 +4,34 @@ picture {
 p:empty {
     display: none;
 }
-.block, div, h1, h2, h3, h4, h5, h6, p, li, ul, ol, blockquote, audio, picture, figure {
+
+.block, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, audio, picture, figure {
     margin-top: var(--vertical_gap_big);
 }
 li {
     margin-top: var(--vertical_gap_small);
+    ul {
+        margin-top: var(--vertical_gap_small);
+    }
 }
 
+*:not(hr):empty {
+    margin-top: 0;
+}
 img {
     margin: 0 auto;
 }
 figure {
     text-align: center;
 }
-*:first-child {
+h1:first-child, aside > *:first-child {
     margin-top: 0;
 }
+// .mt0FirstChild > *:first-child {
+//     margin-top: 0;
+// }
+
+
 .lh-1 {
     line-height: 1;
 }
