@@ -5,8 +5,11 @@ p:empty {
     display: none;
 }
 
-.block, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, audio, picture, figure {
+.block, .row, table, h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, audio, picture, figure {
     margin-top: var(--vertical_gap_big);
+}
+.container > *:first-child {
+    margin-top: 0;
 }
 li {
     margin-top: var(--vertical_gap_small);
@@ -103,3 +106,8 @@ blockquote {
         text-decoration: none;
     }
 }
+
+td > *:first-child {
+    margin-top: 0;
+}
+
