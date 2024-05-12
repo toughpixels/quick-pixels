@@ -14,6 +14,9 @@ li {
         margin-top: var(--vertical_gap_small);
     }
 }
+.row > * {
+    margin-top: 0;
+}
 
 *:not(hr):empty {
     margin-top: 0;
